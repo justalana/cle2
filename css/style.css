@@ -1,0 +1,30 @@
+
+
+main {
+    background-color: green;
+    text-align: center;
+}
+header {
+    display: flex;
+        justify-content: flex-end;
+    gap: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+       }
+.title {
+    font-weight: bold;
+}
+img {
+    width: auto;
+    height: 10vh;
+}
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 20px;
+
+}
+.name-container {
+    display: flex;
+}
