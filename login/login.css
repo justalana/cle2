@@ -2,10 +2,6 @@
     box-sizing:border-box;
 }
 
-div{
-    /*border: 1px red solid;*/
-}
-
 body{
     background-color:#87DCFF;
     margin:0;
@@ -83,4 +79,8 @@ input[type=text]:valid{
     border-radius:25px;
     font-size:1rem;
     text-align:center;
+}
+
+.button:hover{
+    cursor:pointer;
 }
