@@ -64,7 +64,7 @@
             <p class="adres">3083 MA Rotterdam</p>
         </div>
         <div>
-            <p><b>E-mail:</b><a href="">info@kdvkidzglobe.nl</a></p>
+            <p><b>E-mail: </b><a href="">info@kdvkidzglobe.nl</a></p>
             <p><b>Tel:</b> #085-078-3390</p>
             <p><b>Mob:</b> #06-11-14-01-45</p>
             <p><b>LRK:</b> 293736285</p>
