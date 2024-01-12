@@ -39,6 +39,10 @@ nav a:hover{
     border-radius:5px;
 }
 
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 section{
     text-align:center;
 }
@@ -51,36 +55,77 @@ h3{
     font-size:1.5rem;
 }
 
-input[type=text]{
-    width:40vw;
-    height:6vh;
-    border:3px solid #F24726;
-    border-radius:25px;
-    padding:3vh 1vw;
-    margin:3vh 0vw;
+input[type=text] {
+    width: 50vw;
+    height: 6vh;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 3vh 1vw;
+    margin: 1.5vh 0;
 }
 
-input[type=text]:valid{
-    border:3px solid #0CA789;
+input[type=text]:valid {
+    border: 3px solid #0CA789;
 }
 
-::placeholder{
-    text-align:center;
+::placeholder {
+    text-align: center;
     color: black;
-    font-size:1rem;
-
+    font-size: 1rem;
 }
 
-.button{
+.button {
+    background-color: #BEE86E;
+    width: 50vw;
+    height: 6vh;
+    border: 3px solid black;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+footer{
     background-color:#BEE86E;
-    width:40vw;
-    height:6vh;
-    border:3px solid black;
-    border-radius:25px;
-    font-size:1rem;
-    text-align:center;
+    display:flex;
+    margin-top:40vh;
+    justify-content: space-evenly;
 }
 
-.button:hover{
-    cursor:pointer;
+.adres{
+    margin:0;
+}
+
+#tijden{
+    display:flex;
+    gap:15px;
+}
+
+.maandag{
+    margin:0 0 0.5vh 0;
+}
+
+@media (max-width: 768px) {
+
+    input[type=text]{
+        width:60vw;
+        border:2px solid black;
+    }
+
+    .button{
+        width:60vw;
+        border:2px solid black;
+    }
+
+    footer{
+        justify-content: space-between;
+        padding:0 5vw;
+    }
+
+    #tijden{
+        gap:8px;
+    }
 }

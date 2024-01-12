@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css?v=<?php echo time(); ?>">
     <title>KidzGlobe</title>
 </head>
 <body>
@@ -33,14 +33,12 @@
             </div>
         </div>
     </div>
+
 </nav>
 
 <section>
     <div>
         <h1>Log in</h1>
-    </div>
-    <div>
-        <h3>Beste ouder/verzorger, log in om te kunnen inplannen.</h3>
     </div>
     <form action="">
         <div>
@@ -55,6 +53,46 @@
         <button class="button">Inloggen</button>
     </form>
 </section>
+
+<footer>
+    <div>
+        <div>
+            <h3>Contact</h3>
+            <p class="adres"><b>Adres:</b> Van Everdijckstraat 31,</p>
+            <p class="adres">3083 MA Rotterdam</p>
+        </div>
+        <div>
+            <p><b>E-mail: </b><a href="">info@kdvkidzglobe.nl</a></p>
+            <p><b>Tel:</b> #085-078-3390</p>
+            <p><b>Mob:</b> #06-11-14-01-45</p>
+            <p><b>LRK:</b> 293736285</p>
+            <p><b>KvK nmr:</b> 85418072</p>
+        </div>
+    </div>
+    <div>
+        <h3>Openingstijden</h3>
+        <div id="tijden">
+            <div>
+                <p class="maandag">Maandag</p>
+                <p>Dinsdag</p>
+                <p>Woensdag</p>
+                <p>Donderdag</p>
+                <p>Vrijdag</p>
+                <p>Zaterdag</p>
+                <p>Zondag</p>
+            </div>
+            <div>
+                <p class="maandag">07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>Gesloten</p>
+                <p>Gesloten</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
