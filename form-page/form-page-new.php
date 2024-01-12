@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/form-page/style.new.css">
+    <link rel="stylesheet" href="style.new.css">
     <title>form-page</title>
 </head>
 <body>
@@ -38,7 +38,7 @@
             <option value="4">4</option>
         </select>
 
-        <input type="checkbox" id="voorwaarden" naam="voorwaarden" value="voorwaarden" <label
+        <input type="checkbox" id="voorwaarden" name="voorwaarden" value="voorwaarden" <label
                 for="voorwaarden">ik ga akoord met de algemene voorwaarden</label>
         <button type="submit">versturen</button>
     </form>
