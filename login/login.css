@@ -38,10 +38,6 @@ nav a:hover{
     border-radius:5px;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 section{
     text-align:center;
 }
@@ -85,6 +81,36 @@ input[type=text]:valid {
 
 .button:hover {
     cursor: pointer;
+    background-color: greenyellow;
+}
+
+#button{
+    margin-bottom:7vh;
+}
+
+#link-form{
+    background-color: #BEE86E;
+    color:black;
+    width: 50vw;
+    height: 6vh;
+    border: 3px solid black;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    align-items: center;
+    text-decoration: none;
+    display: inline-block;
+    display:flex;
+    align-items: center;
+    justify-content:center ;
+}
+
+#link-form:hover{
+    background-color: greenyellow;
+}
+
+#link-account{
+    display:flex;
+    justify-content: center;
 }
 
 footer{
@@ -110,12 +136,12 @@ footer{
 @media (max-width: 768px) {
 
     input[type=text]{
-        width:60vw;
+        width:70vw;
         border:2px solid black;
     }
 
     .button{
-        width:60vw;
+        width:70vw;
         border:2px solid black;
     }
 
@@ -126,5 +152,10 @@ footer{
 
     #tijden{
         gap:8px;
+    }
+
+    #link-form{
+        width:70vw;
+        border:2px solid black;
     }
 }

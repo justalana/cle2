@@ -1,42 +1,45 @@
 <?php
-//session_start();
-//
-//$login = false;
-//
-///** @var mysqli $db */
-//require_once 'connection.php';
-//
-//$errors = array();
 //
 //if (isset($_POST['submit'])) {
 //
-//    $email = mysqli_real_escape_string($db, $_POST['email']);
-//    $password = mysqli_real_escape_string($db, $_POST['password']);
+//    /** @var mysqli $db */
+//    require_once "connection.php";
 //
-//    $errors = array();
+//    $firstName = mysqli_real_escape_string ($db,$_POST['firstName']);
+//    $lastName = mysqli_real_escape_string ($db,$_POST['lastName']);
+//    $email = mysqli_real_escape_string ($db,$_POST['email']);
+//    $password = mysqli_real_escape_string ($db,$_POST['password']);
+//
+//    if ($firstName == '') {
+//        $firstNameError = 'Cannot be empty';
+//    }
+//
+//    if ($lastName == '') {
+//        $lastNameError = 'Cannot be empty';
+//    }
 //
 //    if ($email == '') {
-//        print_r ($errors);
+//        $emailError = 'Cannot be empty';
 //    }
 //
 //    if ($password == '') {
-//        print_r ($errors);
+//        $passwordError = 'Cannot be empty';
+//    } else {
+//        $password = password_hash($password, PASSWORD_DEFAULT);
+//
+//        $query = " INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`)
+//        VALUES ('$firstName','$lastName','$email','$password')";
+//
+//        echo $query;
+//
+//        $result = mysqli_query($db, $query)
+//        or die('Error' . mysqli_error($db) . 'with query');
+//
+//        header(header: 'location:login.php');
+//        exit;
 //    }
+//
 //}
-//else {
-//    $query = "SELECT email,password
-//        FROM users WHERE email=".$email;
-//
-//    $result = mysqli_query($db, $query)
-//    or die('Error ' . mysqli_error($db) . ' with query ' . $query);
-//
-//    $_SESSION['email'] = $_POST['email'];
-//
-//
-//    header(header:'location:secure.php');
-//    exit;
-//}
-//
 //?>
 
 <!doctype html>
@@ -79,29 +82,37 @@
 
 <section>
     <div>
-        <h1>Log in</h1>
+        <h1>Account maken</h1>
     </div>
     <form action="" method="post">
         <div>
             <div>
+                <label for="voornaam"></label>
+                <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" required>
+            </div>
+            <div>
+                <label for="achternaam"></label>
+                <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam" required>
+            </div>
+            <div>
                 <label for="email"></label>
                 <input type="text" id="email" name="email" placeholder="Email" required>
             </div>
-
+            <div>
+                <label for="telefoonnummer"></label>
+                <input type="text" id="telefoonnummer" name="telefoonnummer" placeholder="Telefoonnummer" required>
+            </div>
             <div>
                 <label for="wachtwoord"></label>
                 <input type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required>
             </div>
         </div>
-        <div>
-            <div>
-                <button class="button" id="button">Inloggen</button>
-            </div>
-            <div id="link-account">
-                <a id="link-form" href="registreren.php">Geen account? Maak er een aan.</a>
-            </div>
-        </div>
+
+        <button class="button" id="button">Account maken</button>
+
     </form>
+
+
 
 </section>
 
