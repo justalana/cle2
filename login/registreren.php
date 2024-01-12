@@ -55,66 +55,56 @@
 <body>
 
 <nav>
-    <div id="nav">
-        <div id="logo">
-            <img src="./images/Kidz-Globe-logo%20(1).png" alt="" loading="lazy">
-        </div>
-        <div id="link">
-            <div>
-                <a href="">Home</a>
-            </div>
+    <div class="logo">
+        <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
+    </div>
 
-            <div>
-                <a href="">Inschrijven</a>
-            </div>
-
-            <div>
-                <a href="">Over ons</a>
-            </div>
-
-            <div>
-                <a href="">Contact</a>
-            </div>
+    <div class="dropdown">
+        <button class="dropdown-button"><img src="images/dropdown1.png"></button>
+        <div class="dropdown-menu">
+            <a href="" class="dropdown-item">Home</a>
+            <a href="#" class="dropdown-item">Reservering Maken</a>
+            <a href="#" class="dropdown-item">Contact</a>
+            <a href="#" class="dropdown-item">Over Ons</a>
         </div>
     </div>
 
 </nav>
 
-<section>
-    <div>
-        <h1>Account maken</h1>
-    </div>
-    <form action="" method="post">
+<main>
+    <section>
         <div>
-            <div>
-                <label for="voornaam"></label>
-                <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" required>
-            </div>
-            <div>
-                <label for="achternaam"></label>
-                <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam" required>
-            </div>
-            <div>
-                <label for="email"></label>
-                <input type="text" id="email" name="email" placeholder="Email" required>
-            </div>
-            <div>
-                <label for="telefoonnummer"></label>
-                <input type="text" id="telefoonnummer" name="telefoonnummer" placeholder="Telefoonnummer" required>
-            </div>
-            <div>
-                <label for="wachtwoord"></label>
-                <input type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required>
-            </div>
+            <h1>Account maken</h1>
         </div>
+        <form action="" method="post">
+            <div>
+                <div>
+                    <label for="voornaam"></label>
+                    <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" required>
+                </div>
+                <div>
+                    <label for="achternaam"></label>
+                    <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam" required>
+                </div>
+                <div>
+                    <label for="email"></label>
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <label for="telefoonnummer"></label>
+                    <input type="text" id="telefoonnummer" name="telefoonnummer" placeholder="Telefoonnummer" required>
+                </div>
+                <div>
+                    <label for="wachtwoord"></label>
+                    <input type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required>
+                </div>
+            </div>
 
-        <button class="button" id="button">Account maken</button>
+            <button class="button" id="button">Account maken</button>
 
-    </form>
-
-
-
-</section>
+        </form>
+    </section>
+</main>
 
 <footer>
     <div>
