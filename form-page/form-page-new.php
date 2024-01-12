@@ -17,7 +17,7 @@
 <main>
     <h1>account maken</h1>
 
-    <form class="FormContainer">
+    <form action="" method="post" class="FormContainer">
         <label for="first-name">Naam:</label>
         <input type="text" id="first-name" name="firstname" placeholder="voornaam" required>
 
