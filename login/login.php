@@ -43,10 +43,12 @@
     <form action="">
         <div>
             <div>
+                <label for="email"></label>
                 <input type="text" id="email" name="email" placeholder="Email" required>
             </div>
 
             <div>
+                <label for="wachtwoord"></label>
                 <input type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required>
             </div>
         </div>
