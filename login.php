@@ -1,44 +1,4 @@
 
-//session_start();
-//
-//$login = false;
-//
-///** @var mysqli $db */
-//require_once 'connection.php';
-//
-//$errors = array();
-//
-//if (isset($_POST['submit'])) {
-//
-//    $email = mysqli_real_escape_string($db, $_POST['email']);
-//    $password = mysqli_real_escape_string($db, $_POST['password']);
-//
-//    $errors = array();
-//
-//    if ($email == '') {
-//        print_r ($errors);
-//    }
-//
-//    if ($password == '') {
-//        print_r ($errors);
-//    }
-//}
-//else {
-//    $query = "SELECT email,password
-//        FROM users WHERE email=".$email;
-//
-//    $result = mysqli_query($db, $query)
-//    or die('Error ' . mysqli_error($db) . ' with query ' . $query);
-//
-//    $_SESSION['email'] = $_POST['email'];
-//
-//
-//    header(header:'location:secure.php');
-//    exit;
-//}
-//
-//
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <title>KidzGlobe</title>
 </head>
 <body>
