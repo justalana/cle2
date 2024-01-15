@@ -1,44 +1,4 @@
 
-//session_start();
-//
-//$login = false;
-//
-///** @var mysqli $db */
-//require_once 'connection.php';
-//
-//$errors = array();
-//
-//if (isset($_POST['submit'])) {
-//
-//    $email = mysqli_real_escape_string($db, $_POST['email']);
-//    $password = mysqli_real_escape_string($db, $_POST['password']);
-//
-//    $errors = array();
-//
-//    if ($email == '') {
-//        print_r ($errors);
-//    }
-//
-//    if ($password == '') {
-//        print_r ($errors);
-//    }
-//}
-//else {
-//    $query = "SELECT email,password
-//        FROM users WHERE email=".$email;
-//
-//    $result = mysqli_query($db, $query)
-//    or die('Error ' . mysqli_error($db) . ' with query ' . $query);
-//
-//    $_SESSION['email'] = $_POST['email'];
-//
-//
-//    header(header:'location:secure.php');
-//    exit;
-//}
-//
-//
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <title>KidzGlobe</title>
 </head>
 <body>
@@ -136,49 +96,5 @@
     </div>
 </footer>
 
-</body>
-</html>
-    <title>Kidzglobe login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header>
-    <div class="logo">
-        <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
-    </div>
-    <h2>Home</h2>
-    <h2>Reservering Maken</h2>
-    <h2>Over Ons</h2>
-    <h2>Contact</h2>
-</header>
-<main>
-    <p>
-        Beste ouder/verzorger,
-        Log in om te kunnen inplannen.
-    </p>
-    <h2>
-        Log in
-    </h2>
-    <form>
-        <div class="name-container">
-
-            <div class="emaild">
-
-                <input type="text" id="email" name="email" placeholder="Test@live.nl" required>
-            </div>
-
-            <div class="passd">
-
-                <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
-            </div>
-            <div class="form-button">
-                <button type="submit">Inloggen</button>
-            </div>
-    </form>
-</main>
-<footer>
-
-</footer>
 </body>
 </html>
