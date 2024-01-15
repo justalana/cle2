@@ -56,7 +56,7 @@
 
 <nav>
     <div class="logo">
-        <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
+        <img src="images/Kidz-Globe-logo (1).png" alt="Kidzglobe">
     </div>
 
     <div class="dropdown">
