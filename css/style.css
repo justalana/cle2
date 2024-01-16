@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 20px;
+}
+
+img {
+    width: auto;
+    height: 10vh;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: relative;
+    top: 5vh;
+    background-color: #BEE86E;
+    border: 1px solid #BEE86E;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: black;
+    transition: all 0.3s ease-out;
+}
+
+.dropdown-item:hover {
+    background-color: #87DCFF;
+}
+
+footer{
+    background-color:#BEE86E;
+    display:flex;
+    margin-top:40vh;
+    justify-content: space-evenly;
+}
+
+.adres{
+    margin:0;
+}
+
+#tijden{
+    display:flex;
+    gap:15px;
+}
+
+.maandag{
+    margin:0 0 0.5vh 0;
+}
+
+@media (max-width: 480px) {
+
+    .dropdown-menu a {
+        text-align: center;
+    }
+
+    footer{
+        justify-content: space-between;
+        padding:0 5vw;
+    }
+
+    #tijden{
+        gap:8px;
+    }
+}

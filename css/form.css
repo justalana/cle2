@@ -4,6 +4,7 @@
 
 body{
     margin:0;
+    background-color:#F8F4F3;
 }
 
 h1{
@@ -17,9 +18,6 @@ h3{
 }
 
 nav {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 20px;
     background-color: #BEE86E;
 }
 
@@ -43,50 +41,8 @@ nav a:hover{
     border-radius:5px;
 }
 
-img {
-    width: auto;
-    height: 10vh;
-}
-
-.logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-right: 20px;
-    width:100%;
-}
-
 a {
     font-weight: bold;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-grid;
-}
-
-.dropdown-menu {
-    display: none;
-    position: relative;
-    top: 5vh;
-    border: 2px solid grey;
-    border-radius: 5px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-item {
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    color: black;
-    transition: all 0.3s ease-out;
-}
-
-.dropdown-item:hover {
-    background-color: #0CA789;
 }
 
 main{
@@ -114,12 +70,18 @@ input[type=text]:valid {
     border: 3px solid #0CA789;
 }
 
+input[type=radio],
+input[type=checkbox]{
+    margin-bottom: 2vh;
+    align-items: center;
+}
+
 #button{
     margin-bottom:7vh;
     display:flex;
     text-align: center;
     justify-content: center;
-    gap:2vw;
+    gap:1.5vw;
 }
 
 input[type=button] {
@@ -129,7 +91,6 @@ input[type=button] {
     border: 3px solid black;
     border-radius: 25px;
     font-size: 1rem;
-    gap:10px;
 }
 
 input[type=button]:hover{
@@ -137,69 +98,56 @@ input[type=button]:hover{
     cursor:pointer;
 }
 
-#link-form{
-    background-color: #BEE86E;
-    color:black;
-    width: 50vw;
-    height: 6vh;
+#submit{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+input[type=submit]{
+    background-color:#BEE86E;
+    width:55vw;
+    height:6vh;
     border: 3px solid black;
     border-radius: 25px;
-    font-size: 1.1rem;
-    align-items: center;
-    text-decoration: none;
-    display: inline-block;
-    display:flex;
-    justify-content:center ;
+    font-size: 1rem;
+    align-content: center;
 }
 
-#link-form:hover{
-    background-color: greenyellow;
+input[type=submit]:hover{
+    background-color:greenyellow;
+    cursor: pointer;
 }
 
-#link-account{
-    display:flex;
-    justify-content: center;
-}
+@media (max-width: 480px) {
 
-footer{
-    background-color:#BEE86E;
-    display:flex;
-    margin-top:40vh;
-    justify-content: space-evenly;
-}
-
-.adres{
-    margin:0;
-}
-
-#tijden{
-    display:flex;
-    gap:15px;
-}
-
-.maandag{
-    margin:0 0 0.5vh 0;
-}
-
-@media (max-width: 768px) {
-
-    input[type=text]{
+    input[type=text],
+    input[type=date]{
         width:70vw;
         border:2px solid black;
     }
 
-    .button{
+    .check_radio{
+        width:70vw;
+        margin:1vh 0;
+    }
+
+    #button{
+        display:flex;
+        flex-direction: column;
+    }
+
+    input[type=button]{
         width:70vw;
         border:2px solid black;
+        flex-direction:column;
+        padding-top:1vh;
     }
 
-    footer{
-        justify-content: space-between;
-        padding:0 5vw;
-    }
-
-    #tijden{
-        gap:8px;
+    input[type=submit]{
+        width:70vw;
+        border:2px solid black;
     }
 
     #link-form{
