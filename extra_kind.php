@@ -32,13 +32,13 @@
                 <div class="form_flex">
                     <h3>Kind informatie</h3>
                     <div class="form_flex">
-                        <label for="age_child"><b>Naam:</b></label>
-                        <input type="text" id="age_child" name="age_child" required>
+                        <label for="name_child"><b>Naam:</b></label>
+                        <input type="text" id="name_child" name="name_child" required>
                     </div>
 
                     <div class="form_flex">
-                        <label for="Dateofbirth_child"><b>Geboortedatum:</b></label>
-                        <input type="date" id="Dateofbirth_child" name="Dateofbirth_child" required>
+                        <label for="dateofbirth_child"><b>Geboortedatum:</b></label>
+                        <input type="date" id="dateofbirth_child" name="dateofbirth_child" required>
                     </div>
 
                     <div class="form_flex" id="bsn">
@@ -52,17 +52,17 @@
                     </div>
 
                     <div class="form_flex">
-                        <label for="nationality"><b>Nationaliteit:</b></label>
-                        <input type="text" id="nationality" name="nationality" required>
+                        <label for="nationality_child"><b>Nationaliteit:</b></label>
+                        <input type="text" id="nationality_child" name="nationality_child" required>
                     </div>
 
                     <div class="check_radio">
                         <label for="gender"><b>Geslacht:</b></label>
-                        <input type="radio" id="gender" name="gender">
+                        <input type="radio" id="gender" name="men">
                         <label for="gender">Man</label>
-                        <input type="radio" id="gender" name="gender">
+                        <input type="radio" id="gender" name="woman">
                         <label for="gender">Vrouw</label>
-                        <input type="radio" id="gender" name="gender">
+                        <input type="radio" id="gender" name="other">
                         <label for="gender">Anders</label>
                     </div>
 

@@ -38,8 +38,8 @@
                     </div>
 
                     <div class="form_flex">
-                        <label for="Dateofbirth_child"><b>Geboortedatum:</b></label>
-                        <input type="date" id="Dateofbirth_child" name="Dateofbirth_child" required>
+                        <label for="dateofbirth_child"><b>Geboortedatum:</b></label>
+                        <input type="date" id="dateofbirth_child" name="dateofbirth_child" required>
                     </div>
 
                     <div class="form_flex" id="bsn">
@@ -53,18 +53,18 @@
                     </div>
 
                     <div class="form_flex">
-                        <label for="nationality"><b>Nationaliteit:</b></label>
-                        <input type="text" id="nationality" name="nationality" required>
+                        <label for="nationality_child"><b>Nationaliteit:</b></label>
+                        <input type="text" id="nationality_child" name="nationality_child" required>
                     </div>
 
                     <div class="check_radio">
                         <label for="gender"><b>Geslacht:</b></label>
-                        <input type="radio" id="gender" name="gender">
-                        <label for="gender">Man</label>
-                        <input type="radio" id="gender" name="gender">
-                        <label for="gender">Vrouw</label>
-                        <input type="radio" id="gender" name="gender">
-                        <label for="gender">Anders</label>
+                        <input type="radio" id="gender" name="men">
+                        <label for="men">Man</label>
+                        <input type="radio" id="gender" name="woman">
+                        <label for="woman">Vrouw</label>
+                        <input type="radio" id="gender" name="other">
+                        <label for="other">Anders</label>
                     </div>
 
                     <div class="form_flex">
@@ -112,15 +112,15 @@
                     <div class="form_flex">
                         <label for="relation"><b>Relatie:</b></label>
                         <div class="check_radio">
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="mom">
                             <label for="relation">Moeder</label>
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="dad">
                             <label for="relation">Vader</label>
                         </div>
                         <div class="check_radio">
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="caretaker">
                             <label for="relation">Verzorger</label>
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="other">
                             <label for="relation">Anders</label>
                         </div>
                     </div>
@@ -131,8 +131,8 @@
                     </div>
 
                     <div class="form_flex">
-                        <label for="Dateofbirth_caretaker"><b>Geboortedatum:</b></label>
-                        <input type="date" id="Dateofbirth_caretaker" name="Dateofbirth_caretaker" required>
+                        <label for="dateofbirth_caretaker"><b>Geboortedatum:</b></label>
+                        <input type="date" id="dateofbirth_caretaker" name="dateofbirth_caretaker" required>
                     </div>
 
                     <div class="form_flex">
@@ -153,11 +153,11 @@
                     <div class="form_flex">
                         <div class="check_radio">
                             <label for="gender_caretaker"><b>Geslacht:</b></label>
-                            <input type="radio" id="gender_caretaker" name="gender_caretaker">
+                            <input type="radio" id="gender_caretaker" name="men">
                             <label for="gender_caretaker">Man</label>
-                            <input type="radio" id="gender_caretaker" name="gender_caretaker">
+                            <input type="radio" id="gender_caretaker" name="woman">
                             <label for="gender_caretaker">Vrouw</label>
-                            <input type="radio" id="gender_caretaker" name="gender_caretaker">
+                            <input type="radio" id="gender_caretaker" name="other">
                             <label for="gender_caretaker">Anders</label>
                         </div>
                     </div>
