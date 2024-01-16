@@ -2,19 +2,26 @@
 /** @var mysqli $db */
 require_once 'connection.php';
 
-//Stap 3: Select all albums from the database
 $query = "SELECT * FROM children";
 $result = mysqli_query($db, $query)
 or die('Error '.mysqli_error($db).' with query '.$query);
 
-// Stap 4: Save results in an array
 $children = [];
 while($row = mysqli_fetch_assoc($result))
 {
     $children[] = $row;
 }
 
-// Stap 5: Close the connection to the database
+$query = "SELECT * FROM doctors";
+$result = mysqli_query($db, $query)
+or die('Error '.mysqli_error($db).' with query '.$query);
+
+$doctors = [];
+while($row = mysqli_fetch_assoc($result))
+{
+    $doctors[] = $row;
+}
+
 mysqli_close($db);
 ?>
 <!doctype html>
@@ -55,18 +62,31 @@ mysqli_close($db);
     <h1 class="title">
         Kinderen
     </h1>
-    <?php foreach ($children as $index => $child) { ?>
-        <h2><?= htmlentities($child['name'])  ?></h2>
-        <ul>
-            <li>Naam: <?= htmlentities($child['name'])?></li>
-            <li>Geboortedatum: <?= htmlentities($child['date_of_birth'])?></li>
-            <li>BSN: <?= htmlentities($child['bsn'])?></li>
-            <li>Nationaliteit: <?= htmlentities($child['nationality'])?></li>
-            <li>Geslacht: <?= htmlentities($child['gender'])?></li>
-            <li>Allergieën: <?= htmlentities($child['allergies'])?></li>
-            <li>Volgt het vaccinatieprogramma: <?= htmlentities($child['vaccinated'])?></li>
-        </ul>
-    <?php } ?>
+    <div class="child-overview">
+        <?php foreach ($children as $index => $child) { ?>
+            <h2 class="heading"><?= htmlentities($child['name'])  ?></h2>
+            <ul>
+                <li class="list-text">Naam: <?= htmlentities($child['name'])?></li>
+                <li class="list-text">Geboortedatum: <?= htmlentities($child['date_of_birth'])?></li>
+                <li class="list-text">BSN: <?= htmlentities($child['bsn'])?></li>
+                <li class="list-text">Nationaliteit: <?= htmlentities($child['nationality'])?></li>
+                <li class="list-text">Geslacht: <?= htmlentities($child['gender'])?></li>
+                <li class="list-text">Allergieën: <?= htmlentities($child['allergies'])?></li>
+                <li class="list-text">Volgt het vaccinatieprogramma: <?= htmlentities($child['vaccinated'])?></li>
+            </ul>
+        <?php } ?>
+
+        <?php foreach ($doctors as $index => $doctor) { ?>
+            <h2 class="heading-smaller">Dokter</h2>
+            <ul>
+                <li class="list-text">Naam: <?= htmlentities($doctor['doctor_name'])?></li>
+                <li class="list-text">Telefoonnummer: <?= htmlentities($doctor['doctor_phonenumber'])?></li>
+                <li class="list-text">Verzekeringsmaatschappij: <?= htmlentities($doctor['insurance'])?></li>
+                <li class="list-text">Polisnummer: <?= htmlentities($doctor['polis_number'])?></li>
+            </ul>
+        <?php } ?>
+    </div>
+
 </main>
 
 </body>

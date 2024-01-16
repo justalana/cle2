@@ -12,6 +12,7 @@ nav {
     border: none;
     margin-left: 2vh;
 }
+
 .title {
     font-weight: bold;
     margin-top: 5vh;
@@ -55,3 +56,24 @@ nav {
 }
 
 /*KINDER OVERZICHT*/
+.child-overview {
+    text-align: left;
+    margin-left: 5vw;
+}
+
+.heading {
+    font-size: 1.5rem;
+    text-transform: none;
+    font-weight: bold;
+}
+
+.heading-smaller {
+    font-size: 1.2rem;
+    text-transform: none;
+    font-weight: bold;
+    margin-top: 2vh;
+}
+
+.list-text {
+    margin: 0.5vh 0 0.5vh 0;
+}
