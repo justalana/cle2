@@ -70,6 +70,10 @@ input[type=text]:valid {
     border: 3px solid #0CA789;
 }
 
+#bsn input[type=text]:valid{
+    border: 2px solid black;
+}
+
 input[type=radio],
 input[type=checkbox]{
     margin-bottom: 2vh;
