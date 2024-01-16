@@ -2,8 +2,7 @@
 // required when working with sessions
 session_start();
 /** @var mysqli $db */
-print_r($_POST['email']);
-print_r($_POST['password']);
+print_r($_POST);
 
 $login = false;
 // Is user logged in?
@@ -15,26 +14,33 @@ if (isset($_SESSION['caretakers_id'])) {
 if (isset($_POST['submit'])) {
     require_once "connection.php";
 
+
     // Get form data
-    $email = mysqli_real_escape_string($db, $_POST['email'] );
-    $password = mysqli_real_escape_string($db, $_POST['password'] );
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
     // SELECT the user from the database, based on the email address. (query)
     $query = "SELECT * FROM `caretakers` WHERE email = '$email';";
-    $result = mysqli_query($db, $query);
+
+
+    $result = mysqli_query($db, $query)
+    or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+
 
     // Server-side validation
     //$session
-    if (mysqli_num_rows($result)== 1) {
+    if (mysqli_num_rows($result) == 1) {
+
         // check if the user exists
         // Get user data from result
         $user = mysqli_fetch_assoc($result);
-        print_r($user);
         // Check if the provided password matches the stored password in the database
         if (password_verify($password, $user['password'])) {
             // Store the user in the session
             $_SESSION['caretakers_id'] = $user['id'];
             $login = true;
-            // Redirect to secure page
+
+            // Redirect to overview page
             header('Location: index.php');
             exit();
 
@@ -100,13 +106,13 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div>
-                    <label for="wachtwoord"></label>
+                    <label for="password"></label>
                     <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
                 </div>
             </div>
             <div>
                 <div>
-                    <button class="button" id="button">Inloggen</button>
+                    <button class="button" type="submit" name="submit">Inloggen</button>
                 </div>
                 <div id="link-account">
                     <a id="link-form" href="registreren.php">Geen account? Maak er een aan.</a>
