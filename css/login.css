@@ -7,12 +7,6 @@ body{
     margin:0;
 }
 
-nav {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 20px;
-}
-
 .dropdown-button {
     background-color: #87DCFF;
     border: none;
@@ -33,51 +27,8 @@ nav a:hover{
     border-radius:5px;
 }
 
-img {
-    width: auto;
-    height: 10vh;
-}
-
-.logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-right: 20px;
-    width:100%;
-}
-
 a {
     font-weight: bold;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-menu {
-    display: none;
-    position: relative;
-    top: 5vh;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-item {
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    color: black;
-    transition: all 0.3s ease-out;
-}
-
-.dropdown-item:hover {
-    background-color: #0CA789;
 }
 
 main{
@@ -158,26 +109,6 @@ input[type=text]:valid {
     justify-content: center;
 }
 
-footer{
-    background-color:#BEE86E;
-    display:flex;
-    margin-top:40vh;
-    justify-content: space-evenly;
-}
-
-.adres{
-    margin:0;
-}
-
-#tijden{
-    display:flex;
-    gap:15px;
-}
-
-.maandag{
-    margin:0 0 0.5vh 0;
-}
-
 @media (max-width: 768px) {
 
     input[type=text]{
@@ -188,15 +119,6 @@ footer{
     .button{
         width:70vw;
         border:2px solid black;
-    }
-
-    footer{
-        justify-content: space-between;
-        padding:0 5vw;
-    }
-
-    #tijden{
-        gap:8px;
     }
 
     #link-form{
