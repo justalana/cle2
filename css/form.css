@@ -85,10 +85,10 @@ input[type=checkbox]{
     display:flex;
     text-align: center;
     justify-content: center;
-    gap:1.5vw;
+    gap:3vw;
 }
 
-input[type=button] {
+#button input[type=submit] {
     background-color: #87DCFF;
     width: 27vw;
     height: 6vh;
@@ -97,7 +97,7 @@ input[type=button] {
     font-size: 1rem;
 }
 
-input[type=button]:hover{
+#button input[type=button]:hover{
     background-color: aqua;
     cursor:pointer;
 }
@@ -107,6 +107,7 @@ input[type=button]:hover{
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
+    margin-top:2vh;
 }
 
 input[type=submit]{
@@ -122,6 +123,19 @@ input[type=submit]{
 input[type=submit]:hover{
     background-color:greenyellow;
     cursor: pointer;
+}
+
+.tijdstippen{
+    display: flex;
+    justify-content: flex-end;
+    gap: 7vw;
+    margin-top:1vh;
+}
+
+#tijdstippen{
+    display:flex;
+    flex-direction: column;
+    margin:1vh 0 4vh 0;
 }
 
 @media (max-width: 480px) {
@@ -150,7 +164,7 @@ input[type=submit]:hover{
         flex-direction: column;
     }
 
-    input[type=button]{
+    #submit input[type=submit]{
         width:70vw;
         border:2px solid black;
         flex-direction:column;
@@ -160,6 +174,7 @@ input[type=submit]:hover{
     input[type=submit]{
         width:70vw;
         border:2px solid black;
+        align-items:center;
     }
 
     #link-form{
