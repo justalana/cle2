@@ -1,0 +1,68 @@
+html {
+    background-color: #87DCFF;
+    height: 100%;
+}
+body {
+    margin: 0;
+    text-align: center;
+}
+
+.dropdown-button {
+    background-color: #87DCFF;
+    border: none;
+    margin-left: 2vh;
+}
+
+nav a{
+    padding:1vh 1vw;
+    text-decoration: none;
+    color:black;
+    transition: all 0.3s ease-out;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    background-color:black;
+    color:#87DCFF;
+    border-radius:5px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.button {
+    background-color: #BEE86E;
+    border-radius: 15px;
+    border-color: black;
+    margin-top: 4vh;
+}
+.button:hover{
+    border-color: black;
+    background-color: greenyellow;
+}
+a {
+    font-weight: bold;
+}
+main {
+margin-top: 25vh;
+}
+
+@media (max-width: 480px) {
+
+    input[type=text]{
+        width:60vw;
+        border:2px solid black;
+    }
+
+    .button{
+        width:60vw;
+        border:2px solid black;
+    }
+}

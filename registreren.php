@@ -1,68 +1,22 @@
 <?php
-// required when working with sessions
-session_start();
-/** @var mysqli $db */
-print_r($_POST);
+//print_r($_POST);
+/** @var $db */
+require_once "connection.php";
 
-$login = false;
-// Is user logged in?
-if (isset($_SESSION['caretakers_id'])) {
-    $login = true;
-    $errors = [];
-}
-// If data valid
-if (isset($_POST['submit'])) {
-    require_once "connection.php";
-
-
-    // Get form data
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
-
-    // SELECT the user from the database, based on the email address. (query)
-    $query = "SELECT * FROM `caretakers` WHERE email = '$email';";
-
-
+if(isset($_POST['submit'])){
+    $name = mysqli_real_escape_string($db, $_POST['name']);
+    $email = mysqli_real_escape_string($db,$_POST['email']);
+    $phoneNumber = mysqli_real_escape_string($db,$_POST['phoneNumber']);
+    $password = mysqli_real_escape_string($db,$_POST['password']);
+    $hash = password_hash($password,PASSWORD_DEFAULT);
+    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `phonenumber`, `name`) VALUES ('','$email','$hash','$phoneNumber','$name')";
     $result = mysqli_query($db, $query)
     or die('Error ' . mysqli_error($db) . ' with query ' . $query);
-
-
-    // Server-side validation
-    //$session
-    if (mysqli_num_rows($result) == 1) {
-
-        // check if the user exists
-        // Get user data from result
-        $user = mysqli_fetch_assoc($result);
-        // Check if the provided password matches the stored password in the database
-        if (password_verify($password, $user['password'])) {
-            // Store the user in the session
-            $_SESSION['caretakers_id'] = $user['id'];
-            $login = true;
-
-            // Redirect to overview page
-            header('Location: index.php');
-            exit();
-
-        }
-        // Credentials not valid
-        //error incorrect log in
-        else {
-            $errors['loginFailed'] = "Onjuiste inloggegevens. Probeer opnieuw.";
-        }
-
-
-    }
-// User doesn't exist
-////error incorrect log in
-    else {
-        $errors['loginFailed'] = "Gebruiker is niet gevonden";
-    }
-
-
-
 }
+mysqli_close($db);
 ?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -84,7 +38,7 @@ if (isset($_POST['submit'])) {
     <div class="dropdown">
         <button class="dropdown-button"><img src="images/dropdown1.png"></button>
         <div class="dropdown-menu">
-            <a href="" class="dropdown-item">Home</a>
+            <a href="index.php" class="dropdown-item">Home</a>
             <a href="#" class="dropdown-item">Reservering Maken</a>
             <a href="#" class="dropdown-item">Contact</a>
             <a href="#" class="dropdown-item">Over Ons</a>
@@ -92,36 +46,38 @@ if (isset($_POST['submit'])) {
     </div>
 
 </nav>
+
 <main>
     <section>
         <div>
-            <h1>Log in</h1>
+            <h1>Account maken</h1>
         </div>
         <form action="" method="post">
             <div>
                 <div>
+                    <label for="voornaam"></label>
+                    <input type="text" id="name" name="name" placeholder="Voornaam" required>
+                </div>
+                <div>
                     <label for="email"></label>
                     <input type="text" id="email" name="email" placeholder="Email" required>
-                    <?= $errors['email'] ?? '' ?>
                 </div>
-
                 <div>
-                    <label for="password"></label>
+                    <label for="telefoonnummer"></label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Telefoonnummer" required>
+                </div>
+                <div>
+                    <label for="wachtwoord"></label>
                     <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
                 </div>
             </div>
-            <div>
-                <div>
-                    <button class="button" type="submit" name="submit">Inloggen</button>
-                </div>
-                <div id="link-account">
-                    <a id="link-form" href="registreren.php">Geen account? Maak er een aan.</a>
-                </div>
-            </div>
-        </form>
 
+            <button type="submit"  name="submit" class="button" id="button">Account maken</button>
+
+        </form>
     </section>
 </main>
+
 <footer>
     <div>
         <div>
