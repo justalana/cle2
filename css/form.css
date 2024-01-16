@@ -122,6 +122,14 @@ input[type=submit]:hover{
 
 @media (max-width: 480px) {
 
+    #h3{
+        margin:7vh 0 4vh 0;
+    }
+
+    .h3{
+        margin: 0;
+    }
+
     input[type=text],
     input[type=date]{
         width:70vw;

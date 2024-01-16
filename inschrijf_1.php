@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="css/form.css?v<?php echo(time())?>">
+    <link rel="stylesheet" href="./css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>KidzGlobe</title>
 </head>
@@ -29,7 +30,7 @@
         <h1><b>Inschrijf formulier</b></h1>
         <section>
             <form action="" method="post">
-                <div>
+                <div class="form_flex">
                     <h3>Kind informatie</h3>
                     <div class="form_flex">
                             <label for="naam"><b>Naam:</b></label>
@@ -46,7 +47,7 @@
                         <input type="text" id="bsn" name="bsn">
                     </div>
 
-                    <div>
+                    <div class="check_radio">
                         <input type="checkbox" id="bsn" name="bsn">
                         <label for="bsn">Mijn kind heeft nog geen BSN nummer</label>
                     </div>
@@ -56,7 +57,7 @@
                         <input type="text" id="nationaliteit" name="nationaliteit" required>
                     </div>
 
-                    <div>
+                    <div class="check_radio">
                         <label for="geslacht"><b>Geslacht:</b></label>
                         <input type="radio" id="geslacht" name="geslacht">
                         <label for="geslacht">Man</label>
@@ -67,7 +68,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="form_flex">
                     <h3>Dokter</h3>
                     <div>
                         <div class="form_flex">
@@ -95,56 +96,62 @@
                             <input type="text" id="allergieën" name="allergieën" required>
                         </div>
 
-                        <div>
+                        <div class="check_radio">
                             <input type="checkbox" id="vaccinatie" name="vaccinatie">
                             <label for="vaccinatie">Volgt het vaccinatie programma</label>
                         </div>
                     </div>
+                </div>
 
-                    <div>
-                        <h3>Contactverwoordelijke ouder/verzorger</h3>
-                        <div>
-                            <label for="relatie"><b>Relatie:</b></label>
-                            <div>
-                                <input type="radio" id="relatie" name="relatie">
-                                <label for="relatie">Moeder</label>
-                                <input type="radio" id="relatie" name="relatie">
-                                <label for="relatie">Vader</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="relatie" name="relatie">
-                                <label for="relatie">Verzorger</label>
-                                <input type="radio" id="relatie" name="relatie">
-                                <label for="relatie">Anders</label>
-                            </div>
+                <div class="form_flex">
+                    <div id="h3">
+                        <h3 class="h3">Contactverwoordelijke</h3>
+                        <h3 class="h3">ouder/verzorger</h3>
+                    </div>
+
+                    <div class="form_flex">
+                        <label for="relatie"><b>Relatie:</b></label>
+                        <div class="check_radio">
+                            <input type="radio" id="relatie" name="relatie">
+                            <label for="relatie">Moeder</label>
+                            <input type="radio" id="relatie" name="relatie">
+                            <label for="relatie">Vader</label>
                         </div>
-
-                        <div class="form_flex">
-                            <label for="naam"><b>Naam:</b></label>
-                            <input type="text" id="naam" name="naam" required>
+                        <div class="check_radio">
+                            <input type="radio" id="relatie" name="relatie">
+                            <label for="relatie">Verzorger</label>
+                            <input type="radio" id="relatie" name="relatie">
+                            <label for="relatie">Anders</label>
                         </div>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="geboortedatum"><b>Geboortedatum:</b></label>
-                            <input type="date" id="geboortedatum" name="geboortedatum" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="naam"><b>Naam:</b></label>
+                        <input type="text" id="naam" name="naam" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>BSN:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="geboortedatum"><b>Geboortedatum:</b></label>
+                        <input type="date" id="geboortedatum" name="geboortedatum" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="nationaliteit"><b>Nationaliteit:</b></label>
-                            <input type="text" id="nationaliteit" name="nationaliteit" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>BSN:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="nationaliteit"><b>Geboorteland:</b></label>
-                            <input type="text" id="nationaliteit" name="nationaliteit" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="nationaliteit"><b>Nationaliteit:</b></label>
+                        <input type="text" id="nationaliteit" name="nationaliteit" required>
+                    </div>
 
-                        <div>
+                    <div class="form_flex">
+                        <label for="nationaliteit"><b>Geboorteland:</b></label>
+                        <input type="text" id="nationaliteit" name="nationaliteit" required>
+                    </div>
+
+                    <div class="form_flex">
+                        <div class="check_radio">
                             <label for="geslacht"><b>Geslacht:</b></label>
                             <input type="radio" id="geslacht" name="geslacht">
                             <label for="geslacht">Man</label>
@@ -153,44 +160,46 @@
                             <input type="radio" id="geslacht" name="geslacht">
                             <label for="geslacht">Anders</label>
                         </div>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Opleiding:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Beroep:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>Opleiding:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Email:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>Beroep:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Telefoonnummer:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>Email:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Adres:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>Telefoonnummer:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Postcode:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>Adres:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
 
-                        <div class="form_flex">
-                            <label for="bsn"><b>Woonplaats:</b></label>
-                            <input type="text" id="bsn" name="bsn" required>
-                        </div>
+                    <div class="form_flex">
+                        <label for="bsn"><b>Postcode:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
+                    </div>
+
+                    <div class="form_flex">
+                        <label for="bsn"><b>Woonplaats:</b></label>
+                        <input type="text" id="bsn" name="bsn" required>
                     </div>
                 </div>
-                <div>
+
+                <div id="submit">
                     <div id="button">
                         <div>
                             <input type="button" value="Voeg nog een kind toe">
