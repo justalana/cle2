@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #BEE86E;
+}
+
+.dropdown-button {
+    background-color: #BEE86E;
+    border: none;
+    margin-left: 2vh;
+}
+
+.title {
+    font-weight: bold;
+    margin-top: 5vh;
+}
+
+.button-container {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vw;
+}
+
+.button-t {
+    display:flex;
+    flex-direction: row;
+    gap: 5vw;
+    width: 30vw;
+    height: 30vw;
+    justify-content: center;
+}
+
+.button {
+    background-color: #BEE86E;
+    border-radius: 15px;
+    border-color: black;
+    width:30vw;
+    height:30vw;
+
+    font-size: 1rem;
+}
+
+.button-b {
+    background-color: #BEE86E;
+    border-radius: 15px;
+    border-color: black;
+    width: 65vw;
+    height: 30vw;
+
+    font-size: 2rem;
+}
+
+/*KINDER OVERZICHT*/
+.child-overview {
+    text-align: left;
+    margin-left: 5vw;
+}
+
+.heading {
+    font-size: 1.5rem;
+    text-transform: none;
+    font-weight: bold;
+}
+
+.heading-smaller {
+    font-size: 1.2rem;
+    text-transform: none;
+    font-weight: bold;
+    margin-top: 2vh;
+}
+
+.list-text {
+    margin: 0.5vh 0 0.5vh 0;
+}
