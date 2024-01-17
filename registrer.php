@@ -1,46 +1,21 @@
 <?php
-//
-//if (isset($_POST['submit'])) {
-//
-//    /** @var mysqli $db */
-//    require_once "connection.php";
-//
-//    $firstName = mysqli_real_escape_string ($db,$_POST['firstName']);
-//    $lastName = mysqli_real_escape_string ($db,$_POST['lastName']);
-//    $email = mysqli_real_escape_string ($db,$_POST['email']);
-//    $password = mysqli_real_escape_string ($db,$_POST['password']);
-//
-//    if ($firstName == '') {
-//        $firstNameError = 'Cannot be empty';
-//    }
-//
-//    if ($lastName == '') {
-//        $lastNameError = 'Cannot be empty';
-//    }
-//
-//    if ($email == '') {
-//        $emailError = 'Cannot be empty';
-//    }
-//
-//    if ($password == '') {
-//        $passwordError = 'Cannot be empty';
-//    } else {
-//        $password = password_hash($password, PASSWORD_DEFAULT);
-//
-//        $query = " INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`)
-//        VALUES ('$firstName','$lastName','$email','$password')";
-//
-//        echo $query;
-//
-//        $result = mysqli_query($db, $query)
-//        or die('Error' . mysqli_error($db) . 'with query');
-//
-//        header(header: 'location:login.php');
-//        exit;
-//    }
-//
-//}
-//?>
+//print_r($_POST);
+/** @var $db */
+require_once "connection.php";
+
+if(isset($_POST['submit'])){
+    $name = mysqli_real_escape_string($db, $_POST['name']);
+    $email = mysqli_real_escape_string($db,$_POST['email']);
+    $phoneNumber = mysqli_real_escape_string($db,$_POST['phoneNumber']);
+    $password = mysqli_real_escape_string($db,$_POST['password']);
+    $hash = password_hash($password,PASSWORD_DEFAULT);
+    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `phonenumber`, `name`) VALUES ('','$email','$hash','$phoneNumber','$name')";
+    $result = mysqli_query($db, $query)
+    or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+}
+mysqli_close($db);
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -63,7 +38,7 @@
     <div class="dropdown">
         <button class="dropdown-button"><img src="images/dropdown1.png"></button>
         <div class="dropdown-menu">
-            <a href="" class="dropdown-item">Home</a>
+            <a href="index.php" class="dropdown-item">Home</a>
             <a href="#" class="dropdown-item">Reservering Maken</a>
             <a href="#" class="dropdown-item">Contact</a>
             <a href="#" class="dropdown-item">Over Ons</a>
@@ -81,11 +56,7 @@
             <div>
                 <div>
                     <label for="voornaam"></label>
-                    <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam" required>
-                </div>
-                <div>
-                    <label for="achternaam"></label>
-                    <input type="text" id="achternaam" name="achternaam" placeholder="Achternaam" required>
+                    <input type="text" id="name" name="name" placeholder="Voornaam" required>
                 </div>
                 <div>
                     <label for="email"></label>
@@ -93,15 +64,15 @@
                 </div>
                 <div>
                     <label for="telefoonnummer"></label>
-                    <input type="text" id="telefoonnummer" name="telefoonnummer" placeholder="Telefoonnummer" required>
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Telefoonnummer" required>
                 </div>
                 <div>
                     <label for="wachtwoord"></label>
-                    <input type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required>
+                    <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
                 </div>
             </div>
 
-            <button class="button" id="button">Account maken</button>
+            <button type="submit"  name="submit" class="button" id="button">Account maken</button>
 
         </form>
     </section>

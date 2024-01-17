@@ -1,4 +1,68 @@
+<?php
+// required when working with sessions
+session_start();
+/** @var mysqli $db */
+print_r($_POST);
 
+$login = false;
+// Is user logged in?
+if (isset($_SESSION['caretakers_id'])) {
+    $login = true;
+    $errors = [];
+}
+// If data valid
+if (isset($_POST['submit'])) {
+    require_once "connection.php";
+
+
+    // Get form data
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
+
+    // SELECT the user from the database, based on the email address. (query)
+    $query = "SELECT * FROM `caretakers` WHERE email = '$email';";
+
+
+    $result = mysqli_query($db, $query)
+    or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+
+    // Server-side validation
+    //$session
+    if (mysqli_num_rows($result) == 1) {
+
+        // check if the user exists
+        // Get user data from result
+        $user = mysqli_fetch_assoc($result);
+        // Check if the provided password matches the stored password in the database
+        if (password_verify($password, $user['password'])) {
+            // Store the user in the session
+            $_SESSION['caretakers_id'] = $user['id'];
+            $login = true;
+
+            // Redirect to overview page
+            header('Location: index.php');
+            exit();
+
+        }
+        // Credentials not valid
+        //error incorrect log in
+        else {
+            $errors['loginFailed'] = "Onjuiste inloggegevens. Probeer opnieuw.";
+        }
+
+
+    }
+// User doesn't exist
+////error incorrect log in
+    else {
+        $errors['loginFailed'] = "Gebruiker is niet gevonden";
+    }
+
+
+
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,19 +102,20 @@
                 <div>
                     <label for="email"></label>
                     <input type="text" id="email" name="email" placeholder="Email" required>
+                    <?= $errors['email'] ?? '' ?>
                 </div>
 
                 <div>
-                    <label for="wachtwoord"></label>
-                    <input type="text" id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord" required>
+                    <label for="password"></label>
+                    <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
                 </div>
             </div>
             <div>
                 <div>
-                    <button class="button" id="button">Inloggen</button>
+                    <button class="button" type="submit" name="submit">Inloggen</button>
                 </div>
                 <div id="link-account">
-                    <a id="link-form" href="registreren.php">Geen account? Maak er een aan.</a>
+                    <a id="link-form" href="registrer.php">Geen account? Maak er een aan.</a>
                 </div>
             </div>
         </form>
