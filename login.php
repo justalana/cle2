@@ -115,7 +115,7 @@ if (isset($_POST['submit'])) {
                     <button class="button" type="submit" name="submit">Inloggen</button>
                 </div>
                 <div id="link-account">
-                    <a id="link-form" href="registreren.php">Geen account? Maak er een aan.</a>
+                    <a id="link-form" href="registrer.php">Geen account? Maak er een aan.</a>
                 </div>
             </div>
         </form>
