@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
             $login = true;
 
             // Redirect to overview page
-            header('Location: index.php');
+            header('Location: user_home.php');
             exit();
 
         }

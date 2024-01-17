@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
     $phoneNumber = mysqli_real_escape_string($db,$_POST['phoneNumber']);
     $password = mysqli_real_escape_string($db,$_POST['password']);
     $hash = password_hash($password,PASSWORD_DEFAULT);
-    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `phonenumber`, `name`) VALUES ('','$email','$hash','$phoneNumber','$name')";
+    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `caretaker_phonenumber`, `caretaker_name`) VALUES ('','$email','$hash','$phoneNumber','$name')";
     $result = mysqli_query($db, $query)
     or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 }
