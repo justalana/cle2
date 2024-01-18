@@ -22,7 +22,7 @@ mysqli_close($db);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kidzglobe login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="./css/user.css?v<?php echo time()?>">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -51,11 +51,11 @@ mysqli_close($db);
 <main>
 
     <h1 class="title">
-        Kinderen
+        Reserveringen
     </h1>
     <div class="child-overview">
         <?php foreach ($reservations as $index => $reservation) { ?>
-            <ul>
+            <ul class="list-end">
                 <li class="list-text">Tijden: <?= htmlentities($reservation['time'])?></li>
                 <li class="list-text">Datum: <?= htmlentities($reservation['date'])?></li>
             </ul>
