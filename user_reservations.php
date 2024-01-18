@@ -1,4 +1,19 @@
 <?php
+/** @var mysqli $db */
+require_once 'connection.php';
+
+$query = "SELECT * FROM reservations";
+$result = mysqli_query($db, $query)
+or die('Error '.mysqli_error($db).' with query '.$query);
+
+$reservations = [];
+while($row = mysqli_fetch_assoc($result))
+{
+    $reservations[] = $row;
+}
+
+
+mysqli_close($db);
 ?>
 <!doctype html>
 <html lang="en">
@@ -7,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kidzglobe login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/user.css?v<?php echo time()?>">
+    <link rel="stylesheet" href="./css/user.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -23,7 +38,7 @@
             <div class="dropdown-menu">
                 <a href="user_home.php" class="dropdown-item">Home</a>
                 <a href="form_1.php" class="dropdown-item">Inschrijven</a>
-                <a href=user_reservations.php class="dropdown-item">Inschrijvingen</a>
+                <a href="user_reservations.php" class="dropdown-item">Inschrijvingen</a>
                 <a href="user_children.php" class="dropdown-item">Kinderen</a>
                 <a href="#" class="dropdown-item">Over Ons</a>
                 <a href="#" class="dropdown-item">Contact</a>
@@ -34,31 +49,18 @@
 
 
 <main>
+
     <h1 class="title">
-        Welkom, [Naam]
+        Kinderen
     </h1>
-
-    <div class="button-container">
-        <div class="button-t">
-            <div>
-                <a href="user_reservations.php">
-                    <button class="button">Inschrijvingen</button>
-                </a>
-            </div>
-            <div>
-                <a href="user_children.php">
-                    <button  class="button">Kinderen</button>
-                </a>
-            </div>
-        </div>
-        <div>
-            <a href="form_1.php">
-                <button class="button-b" >Inschrijven</button>
-            </a>
-        </div>
-
+    <div class="child-overview">
+        <?php foreach ($reservations as $index => $reservation) { ?>
+            <ul>
+                <li class="list-text">Tijden: <?= htmlentities($reservation['time'])?></li>
+                <li class="list-text">Datum: <?= htmlentities($reservation['date'])?></li>
+            </ul>
+        <?php } ?>
     </div>
-
 
 </main>
 
