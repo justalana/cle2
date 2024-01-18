@@ -28,15 +28,17 @@ img {
 
 .dropdown-menu {
     display: none;
-    position: relative;
+    position:relative;
     top: 5vh;
     background-color: #BEE86E;
     border: 1px solid #BEE86E;
     border-radius: 5px;
+
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+    display:block;
+    position: absolute;
 }
 
 .dropdown-item {
