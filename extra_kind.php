@@ -105,14 +105,14 @@
                 <div id="submit">
                     <div id="button">
                         <div>
-                            <input onclick="window.location.href='extra_kind.php';" type="submit" value="Voeg nog een kind toe">
+                            <input onclick="window.location.href='extra_kind.php';" type="submit" name="submit_1" value="Voeg nog een kind toe">
                         </div>
                         <div>
-                            <input onclick="window.location.href='extra_ouder.php';" type="submit" value="Voeg nog een ouder/verzorger toe">
+                            <input onclick="window.location.href='extra_ouder.php';" type="submit" name="submit_2" value="Voeg nog een ouder/verzorger toe">
                         </div>
                     </div>
                     <div>
-                        <input onclick="window.location.href='inschrijf_2.php';" type="submit" value="Volgende stap">
+                        <input onclick="window.location.href='inschrijf_2.php';" type="submit" name="submit_3" value="Volgende stap">
                     </div>
                 </div>
             </form>
