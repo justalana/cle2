@@ -1,4 +1,31 @@
 <?php
+session_start();
+/** @var mysqli $db */
+
+// Check if user is logged in
+if (!isset($_SESSION['caretakers_id'])) {
+    // Redirect to login page if not logged in
+    header('Location: login.php');
+    exit();
+}
+
+// Include the database connection file
+require_once "connection.php";
+
+// Retrieve user information based on the user ID stored in the session
+$userID = $_SESSION['caretakers_id'];
+$query = "SELECT * FROM `caretakers` WHERE id = '$userID'";
+$result = mysqli_query($db, $query) or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+// Check if the user exists
+if (mysqli_num_rows($result) == 1) {
+    $user = mysqli_fetch_assoc($result);
+    $userName = $user['caretaker_name'];
+} else {
+
+    echo "User not found";
+    exit();
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,7 +50,7 @@
             <div class="dropdown-menu">
                 <a href="user_home.php" class="dropdown-item">Home</a>
                 <a href="form_1.php" class="dropdown-item">Inschrijven</a>
-                <a href="#" class="dropdown-item">Inschrijvingen</a>
+                <a href=user_reservations.php class="dropdown-item">Inschrijvingen</a>
                 <a href="user_children.php" class="dropdown-item">Kinderen</a>
                 <a href="#" class="dropdown-item">Over Ons</a>
                 <a href="#" class="dropdown-item">Contact</a>
@@ -35,13 +62,13 @@
 
 <main>
     <h1 class="title">
-        Welkom, [Naam]
+        Welkom, <?php echo $userName; ?>
     </h1>
 
     <div class="button-container">
         <div class="button-t">
             <div>
-                <a href="#">
+                <a href="user_reservations.php">
                     <button class="button">Inschrijvingen</button>
                 </a>
             </div>
@@ -52,7 +79,7 @@
             </div>
         </div>
         <div>
-            <a href="#">
+            <a href="form_1.php">
                 <button class="button-b" >Inschrijven</button>
             </a>
         </div>
