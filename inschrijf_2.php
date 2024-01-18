@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div id="submit">
-                    <input onclick="window.location.href='user_home.php';" type="submit" name="submit_1" value="Inschrijving afronden">
+                    <input type="submit" name="submit_1" value="Inschrijving afronden">
                 </div>
             </form>
         </section>
