@@ -1,18 +1,22 @@
 <?php
-//print_r($_POST);
+//connectie met de database
 /** @var $db */
 require_once "connection.php";
-
+//check of er een submit is
 if(isset($_POST['submit'])){
+    //omzetten naar goeie variabelen met security voor scripts
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $email = mysqli_real_escape_string($db,$_POST['email']);
     $phoneNumber = mysqli_real_escape_string($db,$_POST['phoneNumber']);
     $password = mysqli_real_escape_string($db,$_POST['password']);
+    //pasword hashen en veilig maken voordat hij de database in gaat
     $hash = password_hash($password,PASSWORD_DEFAULT);
+    // in de database inserten
     $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `phonenumber`, `name`) VALUES ('','$email','$hash','$phoneNumber','$name')";
     $result = mysqli_query($db, $query)
     or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 }
+//database sluiten
 mysqli_close($db);
 ?>
 
