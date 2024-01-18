@@ -11,28 +11,26 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<nav>
-    <div class="logo">
-        <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
-    </div>
-
-    <div class="dropdown">
-        <button class="dropdown-button"><img src="images/dropdown1.png"></button>
-        <div class="dropdown-menu">
-            <a href="index.php" class="dropdown-item">Home</a>
-            <a href="#" class="dropdown-item">Reservering Maken</a>
-            <a href="#" class="dropdown-item">Contact</a>
-            <a href="#" class="dropdown-item">Over Ons</a>
-        </div>
-    </div>
-
-    </nav>
-
 
 <header>
+    <nav>
+        <div class="logo">
+            <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
+        </div>
 
+        <div class="dropdown">
+            <button class="dropdown-button"><img src="images/dropdown1.png"></button>
+            <div class="dropdown-menu">
+                <a href="index.php" class="dropdown-item">Home</a>
+                <a href="#" class="dropdown-item">Reservering Maken</a>
+                <a href="#" class="dropdown-item">Contact</a>
+                <a href="#" class="dropdown-item">Over Ons</a>
+            </div>
+        </div>
+    </nav>
 
 </header>
+
 <main>
 
     <h1 class="title">

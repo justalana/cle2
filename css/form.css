@@ -1,0 +1,184 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background-color:#F8F4F3;
+}
+
+h1{
+    text-align:center;
+}
+
+h3{
+    text-align:center;
+    font-size:1.5rem;
+    margin-top:7vh;
+}
+
+nav {
+    background-color: #BEE86E;
+}
+
+.dropdown-button {
+    background-color: #BEE86E;
+    border: none;
+    margin-left: 2vh;
+}
+
+nav a{
+    padding:1vh 1vw;
+    text-decoration: none;
+    color:black;
+    transition: all 0.3s ease-out;
+    background-color: #BEE86E;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    color:black;
+    border-radius:5px;
+}
+
+a {
+    font-weight: bold;
+}
+
+main{
+    margin-top:10vh;
+}
+
+.form_flex{
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-content: center;
+}
+
+input[type=text],
+input[type=date]{
+    width: 55vw;
+    height: 6vh;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 3vh 1vw;
+    margin: 1vh 0 2vh 0;
+}
+
+input[type=text]:valid {
+    border: 3px solid #0CA789;
+}
+
+#bsn input[type=text]:valid{
+    border: 2px solid black;
+}
+
+input[type=radio],
+input[type=checkbox]{
+    margin-bottom: 2vh;
+    align-items: center;
+}
+
+#button{
+    margin-bottom:7vh;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    gap:3vw;
+}
+
+#button input[type=submit] {
+    background-color: #87DCFF;
+    width: 27vw;
+    height: 6vh;
+    border: 3px solid black;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+#button input[type=button]:hover{
+    background-color: aqua;
+    cursor:pointer;
+}
+
+#submit{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top:2vh;
+}
+
+input[type=submit]{
+    background-color:#BEE86E;
+    width:55vw;
+    height:6vh;
+    border: 3px solid black;
+    border-radius: 25px;
+    font-size: 1rem;
+    align-content: center;
+}
+
+input[type=submit]:hover{
+    background-color:greenyellow;
+    cursor: pointer;
+}
+
+.tijdstippen{
+    display: flex;
+    justify-content: flex-end;
+    gap: 7vw;
+    margin-top:1vh;
+}
+
+#tijdstippen{
+    display:flex;
+    flex-direction: column;
+    margin:1vh 0 4vh 0;
+}
+
+@media (max-width: 480px) {
+
+    #h3{
+        margin:7vh 0 4vh 0;
+    }
+
+    .h3{
+        margin: 0;
+    }
+
+    input[type=text],
+    input[type=date]{
+        width:70vw;
+        border:2px solid black;
+    }
+
+    .check_radio{
+        width:70vw;
+        margin:1vh 0;
+    }
+
+    #button{
+        display:flex;
+        flex-direction: column;
+    }
+
+    #submit input[type=submit]{
+        width:70vw;
+        border:2px solid black;
+        flex-direction:column;
+        padding-top:1vh;
+    }
+
+    input[type=submit]{
+        width:70vw;
+        border:2px solid black;
+        align-items:center;
+    }
+
+    #link-form{
+        width:70vw;
+        border:2px solid black;
+    }
+}

@@ -17,5 +17,4 @@ or die("Error: " . mysqli_connect_error());
 //         "or die" uitgevoerd. Deze stopt de code en toont de
 //         foutmelding op het scherm
 // local databse
-$db = mysqli_connect($host, $username, $password, $database)
-or die('Error: '.mysqli_connect_error());
+
