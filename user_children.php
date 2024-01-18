@@ -31,7 +31,7 @@ mysqli_close($db);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kidzglobe login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/user.css">
+    <link rel="stylesheet" href="./css/user.css?v<?php echo time()?>">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -47,7 +47,7 @@ mysqli_close($db);
             <div class="dropdown-menu">
                 <a href="user_home.php" class="dropdown-item">Home</a>
                 <a href="form_1.php" class="dropdown-item">Inschrijven</a>
-                <a href="#" class="dropdown-item">Inschrijvingen</a>
+                <a href="user_reservations.php" class="dropdown-item">Inschrijvingen</a>
                 <a href="user_children.php" class="dropdown-item">Kinderen</a>
                 <a href="#" class="dropdown-item">Over Ons</a>
                 <a href="#" class="dropdown-item">Contact</a>
@@ -78,7 +78,7 @@ mysqli_close($db);
 
         <?php foreach ($doctors as $index => $doctor) { ?>
             <h2 class="heading-smaller">Dokter</h2>
-            <ul>
+            <ul class="list-end">
                 <li class="list-text">Naam: <?= htmlentities($doctor['doctor_name'])?></li>
                 <li class="list-text">Telefoonnummer: <?= htmlentities($doctor['doctor_phonenumber'])?></li>
                 <li class="list-text">Verzekeringsmaatschappij: <?= htmlentities($doctor['insurance'])?></li>

@@ -129,14 +129,14 @@
             <div id="submit">
                 <div id="button">
                     <div>
-                        <input onclick="window.location.href='extra_child.php';" type="submit" value="Voeg nog een kind toe">
+                        <input name="submit_1" type="submit" value="Voeg nog een kind toe">
                     </div>
                     <div>
-                        <input onclick="window.location.href='extra_parent.php';" type="submit" value="Voeg nog een ouder/verzorger toe">
+                        <input name="submit_2" type="submit" value="Voeg nog een ouder/verzorger toe">
                     </div>
                 </div>
                 <div>
-                    <input onclick="window.location.href='form_2.php';" type="submit" value="Volgende stap">
+                    <input name="submit_3" type="submit" value="Volgende stap">
                 </div>
             </div>
         </form>

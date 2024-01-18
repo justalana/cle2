@@ -50,7 +50,7 @@ if (mysqli_num_rows($result) == 1) {
             <div class="dropdown-menu">
                 <a href="user_home.php" class="dropdown-item">Home</a>
                 <a href="form_1.php" class="dropdown-item">Inschrijven</a>
-                <a href="#" class="dropdown-item">Inschrijvingen</a>
+                <a href=user_reservations.php class="dropdown-item">Inschrijvingen</a>
                 <a href="user_children.php" class="dropdown-item">Kinderen</a>
                 <a href="#" class="dropdown-item">Over Ons</a>
                 <a href="#" class="dropdown-item">Contact</a>
@@ -68,7 +68,7 @@ if (mysqli_num_rows($result) == 1) {
     <div class="button-container">
         <div class="button-t">
             <div>
-                <a href="#">
+                <a href="user_reservations.php">
                     <button class="button">Inschrijvingen</button>
                 </a>
             </div>
@@ -79,7 +79,7 @@ if (mysqli_num_rows($result) == 1) {
             </div>
         </div>
         <div>
-            <a href="#">
+            <a href="form_1.php">
                 <button class="button-b" >Inschrijven</button>
             </a>
         </div>
