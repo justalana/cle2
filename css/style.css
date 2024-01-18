@@ -33,7 +33,11 @@ img {
     background-color: #BEE86E;
     border: 1px solid #BEE86E;
     border-radius: 5px;
+    margin-top: 7vw;
 
+}
+.dropdown-menu a {
+    font-size: 0.83rem;
 }
 
 .dropdown:hover .dropdown-menu {
