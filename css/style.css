@@ -79,11 +79,12 @@ footer{
         text-align: center;
     }
 
-    footer{
+    footer {
         justify-content: space-between;
-        padding:0 5vw;
+        padding: 0 5vw;
     }
 
-    #tijden{
-        gap:8px;
+    #tijden {
+        gap: 8px;
     }
+}
