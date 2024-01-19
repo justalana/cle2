@@ -1,3 +1,10 @@
+<?php
+require_once 'connection.php';
+/** @var mysqli $db */
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>

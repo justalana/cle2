@@ -1,3 +1,161 @@
+<?php
+session_start();
+require_once 'connection.php';
+/** @var mysqli $db */
+// Retrieve user information based on the user ID stored in the session
+$userID = $_SESSION['caretakers_id'];
+
+
+if (isset($_POST['submit_3'])) {
+//    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
+//    $age = mysqli_real_escape_string($db, $_POST['age']);
+//    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+//    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+//    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+//    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+//    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+//    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+//    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $relation = mysqli_real_escape_string($db, $_POST['relation']);
+    $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
+    $caretaker_age = mysqli_real_escape_string($db, $_POST['caretaker_age']);
+    $caretaker_bsm = mysqli_real_escape_string($db, $_POST['caretaker_bsm']);
+    $caretaker_nationality = mysqli_real_escape_string($db, $_POST['caretaker_nationality']);
+    $birth_country = mysqli_real_escape_string($db, $_POST['birth_country']);
+    $caretaker_gender = mysqli_real_escape_string($db, $_POST['caretaker_gender']);
+    $degree = mysqli_real_escape_string($db, $_POST['degree']);
+    $job = mysqli_real_escape_string($db, $_POST['job']);
+    $caretaker_phonenumber = mysqli_real_escape_string($db, $_POST['caretaker_phonenumber']);
+    $adres = mysqli_real_escape_string($db, $_POST['adres']);
+    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
+    $residence = mysqli_real_escape_string($db, $_POST['residence']);
+// werkt niet   $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $insurance = mysqli_real_escape_string($db, $_POST['insurance']);
+    $polis_number = mysqli_real_escape_string($db, $_POST['polis_number']);
+// werkt niet    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
+
+
+    $errors = [];
+//    if ($child_name == "") {
+//        $errors['child_name'] = "Vul de naam van je kind";
+//    }
+//    if (empty($errors)) {
+//        $child_query = "INSERT INTO children (name, date_of_birth, bsn, nationality, gender, allergies, vaccinated)
+//        VALUES ('$child_name', '$date_of_birth', '$child_bsn', '$child_nationality', $child_gender, '$allergies', '$childVaccinated' )";
+       $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
+
+       $result = mysqli_query($db, $query);
+        if ($result) {
+            $succes = "Uw gegevens zijn toegeveogd";
+            header('Location: form_2.php');
+
+        }
+        else {
+            $errors[$db] = mysqli_error($db);
+            header('Location: index.php');
+            exit();
+        }
+
+}
+if (isset($_POST['submit_2'])) {
+//    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
+//    $age = mysqli_real_escape_string($db, $_POST['age']);
+//    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+//    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+//    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+//    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+//    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+//    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+//    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $relation = mysqli_real_escape_string($db, $_POST['relation']);
+    $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
+    $caretaker_age = mysqli_real_escape_string($db, $_POST['caretaker_age']);
+    $caretaker_bsm = mysqli_real_escape_string($db, $_POST['caretaker_bsm']);
+    $caretaker_nationality = mysqli_real_escape_string($db, $_POST['caretaker_nationality']);
+    $birth_country = mysqli_real_escape_string($db, $_POST['birth_country']);
+    $caretaker_gender = mysqli_real_escape_string($db, $_POST['caretaker_gender']);
+    $degree = mysqli_real_escape_string($db, $_POST['degree']);
+    $job = mysqli_real_escape_string($db, $_POST['job']);
+    $caretaker_phonenumber = mysqli_real_escape_string($db, $_POST['caretaker_phonenumber']);
+    $adres = mysqli_real_escape_string($db, $_POST['adres']);
+    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
+    $residence = mysqli_real_escape_string($db, $_POST['residence']);
+// werkt niet   $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $insurance = mysqli_real_escape_string($db, $_POST['insurance']);
+    $polis_number = mysqli_real_escape_string($db, $_POST['polis_number']);
+// werkt niet    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
+
+
+    $errors = [];
+//    if ($child_name == "") {
+//        $errors['child_name'] = "Vul de naam van je kind";
+//    }
+//    if (empty($errors)) {
+//        $child_query = "INSERT INTO children (name, date_of_birth, bsn, nationality, gender, allergies, vaccinated)
+//        VALUES ('$child_name', '$date_of_birth', '$child_bsn', '$child_nationality', $child_gender, '$allergies', '$childVaccinated' )";
+    $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
+
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        $succes = "Uw gegevens zijn toegeveogd";
+        header('Location: extra_parent.php');
+
+    }
+}
+if (isset($_POST['submit_1'])) {
+//    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
+//    $age = mysqli_real_escape_string($db, $_POST['age']);
+//    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+//    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+//    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+//    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+//    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+//    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+//    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $relation = mysqli_real_escape_string($db, $_POST['relation']);
+    $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
+    $caretaker_age = mysqli_real_escape_string($db, $_POST['caretaker_age']);
+    $caretaker_bsm = mysqli_real_escape_string($db, $_POST['caretaker_bsm']);
+    $caretaker_nationality = mysqli_real_escape_string($db, $_POST['caretaker_nationality']);
+    $birth_country = mysqli_real_escape_string($db, $_POST['birth_country']);
+    $caretaker_gender = mysqli_real_escape_string($db, $_POST['caretaker_gender']);
+    $degree = mysqli_real_escape_string($db, $_POST['degree']);
+    $job = mysqli_real_escape_string($db, $_POST['job']);
+    $caretaker_phonenumber = mysqli_real_escape_string($db, $_POST['caretaker_phonenumber']);
+    $adres = mysqli_real_escape_string($db, $_POST['adres']);
+    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
+    $residence = mysqli_real_escape_string($db, $_POST['residence']);
+// werkt niet   $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $insurance = mysqli_real_escape_string($db, $_POST['insurance']);
+    $polis_number = mysqli_real_escape_string($db, $_POST['polis_number']);
+// werkt niet    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
+
+
+    $errors = [];
+//    if ($child_name == "") {
+//        $errors['child_name'] = "Vul de naam van je kind";
+//    }
+//    if (empty($errors)) {
+//        $child_query = "INSERT INTO children (name, date_of_birth, bsn, nationality, gender, allergies, vaccinated)
+//        VALUES ('$child_name', '$date_of_birth', '$child_bsn', '$child_nationality', $child_gender, '$allergies', '$childVaccinated' )";
+    $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
+
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        $succes = "Uw gegevens zijn toegeveogd";
+        header('Location: extra_child.php');
+
+    }
+}
+
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -112,37 +270,37 @@
                     <div class="form_flex">
                         <label for="relation"><b>Relatie:</b></label>
                         <div class="check_radio">
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="relation" value="Moeder">
                             <label for="relation">Moeder</label>
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="relation" value="Vader">
                             <label for="relation">Vader</label>
                         </div>
                         <div class="check_radio">
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="relation" value="Verzorger">
                             <label for="relation">Verzorger</label>
-                            <input type="radio" id="relation" name="relation">
+                            <input type="radio" id="relation" name="relation" value="Anders">
                             <label for="relation">Anders</label>
                         </div>
                     </div>
 
                     <div class="form_flex">
                         <label for="name_caretaker"><b>Naam:</b></label>
-                        <input type="text" id="name_caretaker" name="name_caretaker" required>
+                        <input type="text" id="caretaker_name" name="caretaker_name" required>
                     </div>
 
                     <div class="form_flex">
                         <label for="Dateofbirth_caretaker"><b>Geboortedatum:</b></label>
-                        <input type="date" id="Dateofbirth_caretaker" name="Dateofbirth_caretaker" required>
+                        <input type="date" id="caretaker_age" name="caretaker_age" required>
                     </div>
 
                     <div class="form_flex">
                         <label for="bsn_caretaker"><b>BSN:</b></label>
-                        <input type="text" id="bsn_caretaker" name="bsn_caretaker" required>
+                        <input type="text" id="caretaker_bsm" name="caretaker_bsm" required>
                     </div>
 
                     <div class="form_flex">
                         <label for="nationality_caretaker"><b>Nationaliteit:</b></label>
-                        <input type="text" id="nationality_caretaker" name="nationality_caretaker" required>
+                        <input type="text" id="caretaker_nationality" name="caretaker_nationality" required>
                     </div>
 
                     <div class="form_flex">
@@ -152,13 +310,13 @@
 
                     <div class="form_flex">
                         <div class="check_radio">
-                            <label for="gender_caretaker"><b>Geslacht:</b></label>
-                            <input type="radio" id="gender_caretaker" name="gender_caretaker">
+                            <label for="caretaker_gender"><b>Geslacht:</b></label>
+                            <input type="radio" id="caretaker_gender" name="caretaker_gender" value="Man">
                             <label for="gender_caretaker">Man</label>
-                            <input type="radio" id="gender_caretaker" name="gender_caretaker">
+                            <input type="radio" id="caretaker_gender" name="caretaker_gender" value="Vrouw">
                             <label for="gender_caretaker">Vrouw</label>
-                            <input type="radio" id="gender_caretaker" name="gender_caretaker">
-                            <label for="gender_caretaker">Anders</label>
+                            <input type="radio" id="caretaker_gender" name="caretaker_gender" value="Anders">
+                            <label for="caretaker_gender">Anders</label>
                         </div>
                     </div>
 
@@ -180,7 +338,7 @@
 
                     <div class="form_flex">
                         <label for="phonenumber_caretaker"><b>Telefoonnummer:</b></label>
-                        <input type="text" id="phonenumber_caretaker" name="phonenumber_caretaker" required>
+                        <input type="text" id="caretaker_phonenumber" name="caretaker_phonenumber" required>
                     </div>
 
                     <div class="form_flex">

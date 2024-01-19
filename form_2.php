@@ -1,3 +1,36 @@
+<?php
+session_start();
+require_once 'connection.php';
+/** @var mysqli $db */
+//$userID = $_SESSION['reservations_id'];
+
+if(isset($_POST['submit'])){
+    $date = mysqli_real_escape_string($db, $_POST['date']);
+
+
+    $monday_morning = mysqli_real_escape_string($db, $_POST['monday_morning']);
+//    $morning = mysqli_real_escape_string($db, $_POST['morning[]']);
+//    $repeating = mysqli_real_escape_string($db, $_POST['repeating']);
+// code van peer coach
+    if($monday_morning) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('monday', '$date', 1)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+
+//    $query = "INSERT INTO reservations (time, date,repeating) VALUES ('$date', $morning, $afternoon)";
+
+
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        $succes = "Uw gegevens zijn toegeveogd";
+        header('Location: user_reservations.php');
+
+    }
+
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -49,25 +82,25 @@
                             </div>
                             <div class="tijdstippen">
                                 <label for="ochtend"><b>Ochtend</b></label>
-                                <input type="checkbox" id="time" name="morning[]" value="monday">
-                                <input type="checkbox" id="time" name="morning[]" value="tuesday" >
-                                <input type="checkbox" id="time" name="morning[]" value="wednesday" >
-                                <input type="checkbox" id="time" name="morning[]" value="thursday" >
-                                <input type="checkbox" id="time" name="morning[]" value="friday" >
+                                <input type="checkbox" id="time" name="monday_morning">
+                                <input type="checkbox" id="time" name="tuesday_morning" >
+                                <input type="checkbox" id="time" name="wednesday_morning" >
+                                <input type="checkbox" id="time" name="thursday_morning" >
+                                <input type="checkbox" id="time" name="friday_morning" >
                             </div>
                             <div class="tijdstippen">
                                 <label for="middag"><b>Middag</b></label>
-                                <input type="checkbox" id="time" name="afternoon[]" value="monday">
-                                <input type="checkbox" id="time" name="afternoon[]" value="tuesday">
-                                <input type="checkbox" id="time" name="afternoon[]" value="wednesday">
-                                <input type="checkbox" id="time" name="afternoon[]" value="thursday">
-                                <input type="checkbox" id="time" name="afternoon[]" value="friday">
+                                <input type="checkbox" id="time" name="monday_afternoon">
+                                <input type="checkbox" id="time" name="tuesday_afternoon">
+                                <input type="checkbox" id="time" name="wednesday_afternoon">
+                                <input type="checkbox" id="time" name="thursday_afternoon">
+                                <input type="checkbox" id="time" name="friday_afternoon">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="submit">
-                    <input type="submit" value="Inschrijving afronden">
+                    <input type="submit" name="submit" value="Inschrijving afronden">
                 </div>
             </form>
         </section>
