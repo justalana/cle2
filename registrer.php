@@ -5,14 +5,15 @@ require_once "connection.php";
 //check of er een submit is
 if(isset($_POST['submit'])){
     //omzetten naar goeie variabelen met security voor scripts
-    $name = mysqli_real_escape_string($db, $_POST['name']);
+    $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
     $email = mysqli_real_escape_string($db,$_POST['email']);
-    $phoneNumber = mysqli_real_escape_string($db,$_POST['phoneNumber']);
+    $caretaker_phoneNumber = mysqli_real_escape_string($db,$_POST['caretaker_phonenumber']);
     $password = mysqli_real_escape_string($db,$_POST['password']);
     //pasword hashen en veilig maken voordat hij de database in gaat
     $hash = password_hash($password,PASSWORD_DEFAULT);
     // in de database inserten
-    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `phonenumber`, `name`) VALUES ('','$email','$hash','$phoneNumber','$name')";
+    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `caretaker_phonenumber`, `caretaker_name`)
+VALUES ('','$email','$hash','$caretaker_phoneNumber','caretaker_$name')";
     $result = mysqli_query($db, $query)
     or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 }
@@ -60,7 +61,7 @@ mysqli_close($db);
             <div>
                 <div>
                     <label for="voornaam"></label>
-                    <input type="text" id="name" name="name" placeholder="Voornaam" required>
+                    <input type="text" id="caretaker_name" name="caretaker_name" placeholder="Voornaam" required>
                 </div>
                 <div>
                     <label for="email"></label>
@@ -68,7 +69,7 @@ mysqli_close($db);
                 </div>
                 <div>
                     <label for="telefoonnummer"></label>
-                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Telefoonnummer" required>
+                    <input type="text" id="caretaker_phonenumber" name="caretaker_phonenumber" placeholder="Telefoonnummer" required>
                 </div>
                 <div>
                     <label for="wachtwoord"></label>

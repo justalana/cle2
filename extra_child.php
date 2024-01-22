@@ -1,3 +1,35 @@
+<?php
+
+require_once 'connection.php';
+/** @var mysqli $db */
+if(isset($_POST['submit'])){
+    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
+    $age = mysqli_real_escape_string($db, $_POST['age']);
+    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+
+    $query = "INSERT INTO `children`(`id`, `child_name`, `age`, `special_needs`, `date_of_birth`, `child_bsn`, `child_nationality`, `child_gender`, `vaccinated`, `allergies`)
+    VALUES ('','$child_name','$age','$special_needs','$date_of_birth','$child_bsn','$child_nationality','$child_gender','$childVaccinated','$allergies')";
+
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        $succes = "Uw gegevens zijn toegeveogd";
+        header('Location: form_2.php');
+
+    } else {
+        $errors[$db] = mysqli_error($db);
+        header('Location: index.php');
+        exit();
+    }
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,38 +65,38 @@
                 <div class="form_flex">
                     <h3>Kind informatie</h3>
                     <div class="form_flex">
-                        <label for="age_child"><b>Naam:</b></label>
-                        <input type="text" id="age_child" name="age_child" required>
+                        <label for="age"><b>Naam:</b></label>
+                        <input type="text" id="age" name="age" required>
                     </div>
 
                     <div class="form_flex">
-                        <label for="Dateofbirth_child"><b>Geboortedatum:</b></label>
-                        <input type="date" id="Dateofbirth_child" name="Dateofbirth_child" required>
+                        <label for="date_of_birth"><b>Geboortedatum:</b></label>
+                        <input type="date" id="date_of_birth" name="date_of_birth" required>
                     </div>
 
                     <div class="form_flex" id="bsn">
-                        <label for="bsn_child"><b>BSN:</b></label>
-                        <input type="text" id="bsn_child" name="bsn_child">
+                        <label for="child-bsn"><b>BSN:</b></label>
+                        <input type="text" id="child-bsn" name="child-bsn">
                     </div>
 
                     <div class="check_radio">
-                        <input type="checkbox" id="bsn_child" name="bsn_child">
-                        <label for="bsn_child">Mijn kind heeft nog geen BSN nummer</label>
+                        <input type="checkbox" id="child-bsn" name="child-bsn">
+                        <label for="child-bsn">Mijn kind heeft nog geen BSN nummer</label>
                     </div>
 
                     <div class="form_flex">
-                        <label for="nationality"><b>Nationaliteit:</b></label>
-                        <input type="text" id="nationality" name="nationality" required>
+                        <label for="child_nationality"><b>Nationaliteit:</b></label>
+                        <input type="text" id="child_nationality" name="child_nationality" required>
                     </div>
 
                     <div class="check_radio">
-                        <label for="gender"><b>Geslacht:</b></label>
-                        <input type="radio" id="gender" name="gender">
-                        <label for="gender">Man</label>
-                        <input type="radio" id="gender" name="gender">
-                        <label for="gender">Vrouw</label>
-                        <input type="radio" id="gender" name="gender">
-                        <label for="gender">Anders</label>
+                        <label for="child_gender"><b>Geslacht:</b></label>
+                        <input type="radio" id="child_gender" name="child_gender">
+                        <label for="child_gender">Man</label>
+                        <input type="radio" id="child_gender" name="child_gender">
+                        <label for="child_gender">Vrouw</label>
+                        <input type="radio" id="child_gender" name="child_gender">
+                        <label for="child_gender">Anders</label>
                     </div>
 
                     <div class="form_flex">
@@ -106,7 +138,7 @@
                 <div id="submit">
                     <div id="button">
                         <div>
-                            <input name="submit_1" type="submit" value="Voeg nog een kind toe">
+                            <input name="submit_1"" type="submit" value="Voeg nog een kind toe">
                         </div>
                         <div>
                             <input name="submit_2" type="submit" value="Voeg nog een ouder/verzorger toe">

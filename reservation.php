@@ -9,14 +9,68 @@ if(isset($_POST['submit'])){
 
 
     $monday_morning = mysqli_real_escape_string($db, $_POST['monday_morning']);
-//    $morning = mysqli_real_escape_string($db, $_POST['morning[]']);
-//    $repeating = mysqli_real_escape_string($db, $_POST['repeating']);
-// code van peer coach
+    $monday_evening = mysqli_real_escape_string($db, $_POST['monday_evening']);
+    $tuesday_morning = mysqli_real_escape_string($db, $_POST['tuesday_morning']);
+    $tuesday_evening = mysqli_real_escape_string($db, $_POST['tuesday_evening']);
+    $wednesday_morning = mysqli_real_escape_string($db, $_POST['wednesday_morning']);
+    $wednesday_evening = mysqli_real_escape_string($db, $_POST['wednesday_evening']);
+    $thursday_morning = mysqli_real_escape_string($db, $_POST['thursday_morning']);
+    $thursday_evening = mysqli_real_escape_string($db, $_POST['thursday_evening']);
+    $friday_morning = mysqli_real_escape_string($db, $_POST['friday_morning']);
+    $friday_evening = mysqli_real_escape_string($db, $_POST['friday_evening']);
+
+//    code van peer coach
     if($monday_morning) {
         $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('monday', '$date', 1)";
 //        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
 //        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
     }
+    if($monday_evening) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('monday', '$date', 0)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($tuesday_morning) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('tuesday', '$date', 1)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($tuesday_evening) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('tuesday', '$date', 0)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($wednesday_morning) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('wednesday', '$date', 1)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($wednesday_evening) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('wednesday', '$date', 0)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($thursday_morning) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('thursday', '$date', 1)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($thursday_evening) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('thursday', '$date', 0)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($friday_morning) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('friday', '$date', 1)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+    if($friday_evening) {
+        $query = "INSERT INTO reservations (day, date, isMorning) VALUES ('friday', '$date', 0)";
+//        $query = "SELECT id FROM reservations(day, date, isMorning) WHERE "
+//        $query = "INSERT INTO child_caretakers(child_id, caretaker_id, reservation_id) VALUES (1, 1, )"
+    }
+
 
 //    $query = "INSERT INTO reservations (time, date,repeating) VALUES ('$date', $morning, $afternoon)";
 
@@ -25,7 +79,6 @@ if(isset($_POST['submit'])){
     if ($result) {
         $succes = "Uw gegevens zijn toegeveogd";
         header('Location: user_reservations.php');
-
     }
 
 }

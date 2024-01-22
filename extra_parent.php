@@ -2,7 +2,40 @@
 require_once 'connection.php';
 /** @var mysqli $db */
 
+if(isset($_POST['submit'])) {
+    $email = mysqli_real_escape_string($db, $_POST['email']);
+    $relation = mysqli_real_escape_string($db, $_POST['relation']);
+    $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
+    $caretaker_age = mysqli_real_escape_string($db, $_POST['caretaker_age']);
+    $caretaker_bsn = mysqli_real_escape_string($db, $_POST['caretaker_bsn']);
+    $caretaker_nationality = mysqli_real_escape_string($db, $_POST['caretaker_nationality']);
+    $birth_country = mysqli_real_escape_string($db, $_POST['birth_country']);
+    $caretaker_gender = mysqli_real_escape_string($db, $_POST['caretaker_gender']);
+    $degree = mysqli_real_escape_string($db, $_POST['degree']);
+    $job = mysqli_real_escape_string($db, $_POST['job']);
+    $caretaker_phonenumber = mysqli_real_escape_string($db, $_POST['caretaker_phonenumber']);
+    $adres = mysqli_real_escape_string($db, $_POST['adres']);
+    $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
+    $residence = mysqli_real_escape_string($db, $_POST['residence']);
+    $password = mysqli_real_escape_string($db, $_POST['password']);
 
+    $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `relation`, `caretaker_name`, `caretaker_bsn`, `caretaker_nationality`, `birth_country`, `caretaker_gender`, `degree`, `job`, `caretaker_phonenumber`, `adres`, `postcode`, `residence`) 
+VALUES ('','$email','$password','$relation','$caretaker_name','$caretaker_bsn','$caretaker_nationality','$birth_country','$caretaker_gender','$degree','$job','$caretaker_phonenumber','$adres','$postcode','$residence')";
+
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        $succes = "Uw gegevens zijn toegeveogd";
+        header('Location: form_1.php');
+
+    } else {
+        $errors[$db] = mysqli_error($db);
+        header('Location: extra_parent.php');
+        exit();
+    }
+
+//database sluiten
+    mysqli_close($db);
+}
 ?>
 
 <!doctype html>
@@ -61,7 +94,7 @@ require_once 'connection.php';
 
                 <div class="form_flex">
                     <label for="name_caretaker"><b>Naam:</b></label>
-                    <input type="text" id="name_caretaker" name="name_caretaker" required>
+                    <input type="text" id="caretaker_name" name="caretaker_name" required>
                 </div>
 
                 <div class="form_flex">
@@ -71,12 +104,12 @@ require_once 'connection.php';
 
                 <div class="form_flex">
                     <label for="bsn_caretaker"><b>BSN:</b></label>
-                    <input type="text" id="bsn_caretaker" name="bsn_caretaker" required>
+                    <input type="text" id="caretaker_bsn" name="caretaker_bsn" required>
                 </div>
 
                 <div class="form_flex">
                     <label for="nationality_caretaker"><b>Nationaliteit:</b></label>
-                    <input type="text" id="nationality_caretaker" name="nationality_caretaker" required>
+                    <input type="text" id="caretaker_nationality" name="caretaker_nationality" required>
                 </div>
 
                 <div class="form_flex">
@@ -86,13 +119,13 @@ require_once 'connection.php';
 
                 <div class="form_flex">
                     <div class="check_radio">
-                        <label for="gender_caretaker"><b>Geslacht:</b></label>
-                        <input type="radio" id="gender_caretaker" name="gender_caretaker">
-                        <label for="gender_caretaker">Man</label>
-                        <input type="radio" id="gender_caretaker" name="gender_caretaker">
-                        <label for="gender_caretaker">Vrouw</label>
-                        <input type="radio" id="gender_caretaker" name="gender_caretaker">
-                        <label for="gender_caretaker">Anders</label>
+                        <label for="caretaker_gender"><b>Geslacht:</b></label>
+                        <input type="radio" id="caretaker_gender" name="caretaker_gender">
+                        <label for="caretaker_gender">Man</label>
+                        <input type="radio" id="caretaker_gender" name="caretaker_gender">
+                        <label for="caretaker_gender">Vrouw</label>
+                        <input type="radio" id="caretaker_gender" name="caretaker_gender">
+                        <label for="caretaker_gender">Anders</label>
                     </div>
                 </div>
 
@@ -113,8 +146,8 @@ require_once 'connection.php';
                 </div>
 
                 <div class="form_flex">
-                    <label for="phonenumber_caretaker"><b>Telefoonnummer:</b></label>
-                    <input type="text" id="phonenumber_caretaker" name="phonenumber_caretaker" required>
+                    <label for="caretaker_phonenumber"><b>Telefoonnummer:</b></label>
+                    <input type="text" id="caretaker_phonenumber" name="caretaker_phonenumber" required>
                 </div>
 
                 <div class="form_flex">
@@ -133,6 +166,11 @@ require_once 'connection.php';
                 </div>
             </div>
 
+            <div class="form_flex">
+                 <label for="password"><b>Wachtwoord:</b></label>
+                 <input type="text" id="password" name="password" required>
+            </div>
+            </div>
             <div id="submit">
                 <div id="button">
                     <div>
