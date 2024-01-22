@@ -28,15 +28,21 @@ img {
 
 .dropdown-menu {
     display: none;
-    position: relative;
+    position:relative;
     top: 5vh;
     background-color: #BEE86E;
     border: 1px solid #BEE86E;
     border-radius: 5px;
+    margin-top: 7vw;
+
+}
+.dropdown-menu a {
+    font-size: 0.83rem;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+    display:block;
+    position: absolute;
 }
 
 .dropdown-item {
@@ -77,11 +83,12 @@ footer{
         text-align: center;
     }
 
-    footer{
+    footer {
         justify-content: space-between;
-        padding:0 5vw;
+        padding: 0 5vw;
     }
 
-    #tijden{
-        gap:8px;
+    #tijden {
+        gap: 8px;
     }
+}

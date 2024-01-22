@@ -57,6 +57,8 @@ mysqli_close($db);
             <ul class="list-end">
                 <li class="list-text">Tijden: <?= htmlentities($reservation['time'])?></li>
                 <li class="list-text">Datum: <?= htmlentities($reservation['date'])?></li>
+                    <a href="reservation_delete.php?id=<?= $reservation['id']; ?>">verwijder inschrijving</a>
+
             </ul>
         <?php } ?>
     </div>

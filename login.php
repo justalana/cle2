@@ -2,7 +2,7 @@
 // required when working with sessions
 session_start();
 /** @var mysqli $db */
-print_r($_POST);
+
 
 $login = false;
 // Is user logged in?
@@ -80,7 +80,9 @@ if (isset($_POST['submit'])) {
     <div class="logo">
         <img src="images/Kidz-Globe-logo (1).png" alt="Kidzglobe">
     </div>
-
+    <div class = profiel>
+        <img src="images/profiel.png" alt="profiel" onclick="window.open('aanpassen_login.php')">
+    </div>
     <div class="dropdown">
         <button class="dropdown-button"><img src="images/dropdown1.png"></button>
         <div class="dropdown-menu">
@@ -102,9 +104,12 @@ if (isset($_POST['submit'])) {
                 <div>
                     <label for="email"></label>
                     <input type="text" id="email" name="email" placeholder="Email" required>
-                    <?= $errors['email'] ?? '' ?>
                 </div>
-
+                <?php if(isset($errors['loginFailed'])) { ?>
+                    <div class="notification is-danger">
+                        <?=$errors['loginFailed']?>
+                    </div>
+                <?php } ?>
                 <div>
                     <label for="password"></label>
                     <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
