@@ -1,4 +1,33 @@
 <?php
+
+session_start();
+/** @var mysqli $db */
+
+// Check if user is logged in
+if (!isset($_SESSION['caretakers_id'])) {
+    // Redirect to login page if not logged in
+    header('Location: login.php');
+    exit();
+}
+
+// Include the database connection file
+require_once "connection.php";
+
+// Retrieve user information based on the user ID stored in the session
+$userID = $_SESSION['caretakers_id'];
+$query = "SELECT * FROM `caretakers` WHERE id = '$userID'";
+$result = mysqli_query($db, $query) or die('Error ' . mysqli_error($db) . ' with query ' . $query);
+
+// Check if the user exists
+if (mysqli_num_rows($result) == 1) {
+    $user = mysqli_fetch_assoc($result);
+    $userName = $user['caretaker_name'];
+} else {
+
+    echo "User not found";
+    exit();
+}
+
 ?>
 <!doctype html>
 <html lang="en">
