@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $hash = password_hash($password,PASSWORD_DEFAULT);
     // in de database inserten
     $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `caretaker_phonenumber`, `caretaker_name`)
-VALUES ('','$email','$hash','$caretaker_phoneNumber','caretaker_$name')";
+VALUES ('','$email','$hash','$caretaker_phoneNumber','$caretaker_name')";
     $result = mysqli_query($db, $query)
     or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 }

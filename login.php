@@ -2,7 +2,7 @@
 // required when working with sessions
 session_start();
 /** @var mysqli $db */
-print_r($_POST);
+
 
 $login = false;
 // Is user logged in?
@@ -104,7 +104,11 @@ if (isset($_POST['submit'])) {
                     <input type="text" id="email" name="email" placeholder="Email" required>
                     <?= $errors['email'] ?? '' ?>
                 </div>
-
+                <?php if(isset($errors['loginFailed'])) { ?>
+                    <div class="notification is-danger">
+                        <?=$errors['loginFailed']?>
+                    </div>
+                <?php } ?>
                 <div>
                     <label for="password"></label>
                     <input type="text" id="password" name="password" placeholder="Wachtwoord" required>
