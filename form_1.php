@@ -7,15 +7,14 @@ $userID = $_SESSION['caretakers_id'];
 
 
 if (isset($_POST['submit_3'])) {
-//    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
-//    $age = mysqli_real_escape_string($db, $_POST['age']);
-//    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
-//    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
-//    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
-//    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
-//    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
-//    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
-//    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+    $name = mysqli_real_escape_string($db, $_POST['child_name']);
+    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $relation = mysqli_real_escape_string($db, $_POST['relation']);
     $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
@@ -30,22 +29,20 @@ if (isset($_POST['submit_3'])) {
     $adres = mysqli_real_escape_string($db, $_POST['adres']);
     $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
     $residence = mysqli_real_escape_string($db, $_POST['residence']);
-// werkt niet   $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
     $insurance = mysqli_real_escape_string($db, $_POST['insurance']);
     $polis_number = mysqli_real_escape_string($db, $_POST['polis_number']);
-// werkt niet    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
+    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
 
 
     $errors = [];
-//    if ($child_name == "") {
-//        $errors['child_name'] = "Vul de naam van je kind";
-//    }
-//    if (empty($errors)) {
-//        $child_query = "INSERT INTO children (name, date_of_birth, bsn, nationality, gender, allergies, vaccinated)
-//        VALUES ('$child_name', '$date_of_birth', '$child_bsn', '$child_nationality', $child_gender, '$allergies', '$childVaccinated' )";
-       $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
 
-       $result = mysqli_query($db, $query);
+    $child_query = "INSERT INTO children (id, name, special_needs, date_of_birth, child_bsn, child_nationality, child_gender, childVaccinated, allergies) VALUES ('', '$name', '$special_needs', '$date_of_birth', '$child_bsn', '$child_nationality', '$child_gender', '$childVaccinated', '$allergies')";
+       $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
+       $doctor_query = "INSERT INTO doctors (id, doctor_name, polis_number, insurance, doctor_phonenumber) VALUES ('', '$doctor_name', '$polis_number', '$insurance', '$doctor_phonenumber')";
+
+    $result = mysqli_multi_query($db, "$query; $child_query; $doctor_query");
+
         if ($result) {
             $succes = "Uw gegevens zijn toegeveogd";
             header('Location: form_2.php');
@@ -59,15 +56,14 @@ if (isset($_POST['submit_3'])) {
 
 }
 if (isset($_POST['submit_2'])) {
-//    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
-//    $age = mysqli_real_escape_string($db, $_POST['age']);
-//    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
-//    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
-//    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
-//    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
-//    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
-//    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
-//    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+    $name = mysqli_real_escape_string($db, $_POST['child_name']);
+    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $relation = mysqli_real_escape_string($db, $_POST['relation']);
     $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
@@ -82,22 +78,19 @@ if (isset($_POST['submit_2'])) {
     $adres = mysqli_real_escape_string($db, $_POST['adres']);
     $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
     $residence = mysqli_real_escape_string($db, $_POST['residence']);
-// werkt niet   $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
     $insurance = mysqli_real_escape_string($db, $_POST['insurance']);
     $polis_number = mysqli_real_escape_string($db, $_POST['polis_number']);
-// werkt niet    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
+
 
 
     $errors = [];
-//    if ($child_name == "") {
-//        $errors['child_name'] = "Vul de naam van je kind";
-//    }
-//    if (empty($errors)) {
-//        $child_query = "INSERT INTO children (name, date_of_birth, bsn, nationality, gender, allergies, vaccinated)
-//        VALUES ('$child_name', '$date_of_birth', '$child_bsn', '$child_nationality', $child_gender, '$allergies', '$childVaccinated' )";
-    $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
 
-    $result = mysqli_query($db, $query);
+    $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
+    $child_query = "INSERT INTO children (id, name, special_needs, date_of_birth, child_bsn, child_nationality, child_gender, childVaccinated, allergies) VALUES ('', '$name', '$special_needs', '$date_of_birth', '$child_bsn', '$child_nationality', '$child_gender', '$childVaccinated', '$allergies')";
+    $doctor_query = "INSERT INTO doctors (id, doctor_name, polis_number, insurance, doctor_phonenumber) VALUES ('', '$doctor_name', '$polis_number', '$insurance', '$doctor_phonenumber')";
+    $result = mysqli_multi_query($db, "$query; $child_query; $doctor_query");
     if ($result) {
         $succes = "Uw gegevens zijn toegeveogd";
         header('Location: extra_parent.php');
@@ -105,15 +98,14 @@ if (isset($_POST['submit_2'])) {
     }
 }
 if (isset($_POST['submit_1'])) {
-//    $child_name = mysqli_real_escape_string($db, $_POST['child_name']);
-//    $age = mysqli_real_escape_string($db, $_POST['age']);
-//    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
-//    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
-//    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
-//    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
-//    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
-//    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
-//    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
+    $name = mysqli_real_escape_string($db, $_POST['child_name']);
+    $special_needs = mysqli_real_escape_string($db, $_POST['special_needs']);
+    $date_of_birth = mysqli_real_escape_string($db, $_POST['date_of_birth']);
+    $child_bsn = mysqli_real_escape_string($db, $_POST['child_bsn']);
+    $child_nationality = mysqli_real_escape_string($db, $_POST['child_nationality']);
+    $child_gender = mysqli_real_escape_string($db, $_POST['child_gender']);
+    $childVaccinated = isset($_POST['vacinated']) ? 'ja' : 'nee';
+    $allergies = mysqli_real_escape_string($db, $_POST['allergies']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $relation = mysqli_real_escape_string($db, $_POST['relation']);
     $caretaker_name = mysqli_real_escape_string($db, $_POST['caretaker_name']);
@@ -128,22 +120,20 @@ if (isset($_POST['submit_1'])) {
     $adres = mysqli_real_escape_string($db, $_POST['adres']);
     $postcode = mysqli_real_escape_string($db, $_POST['postcode']);
     $residence = mysqli_real_escape_string($db, $_POST['residence']);
-// werkt niet   $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $doctor_phonenumber = mysqli_real_escape_string($db, $_POST['doctor_phonenumber']);
+    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
     $insurance = mysqli_real_escape_string($db, $_POST['insurance']);
     $polis_number = mysqli_real_escape_string($db, $_POST['polis_number']);
-// werkt niet    $doctor_name = mysqli_real_escape_string($db, $_POST['doctor_name']);
+
 
 
     $errors = [];
-//    if ($child_name == "") {
-//        $errors['child_name'] = "Vul de naam van je kind";
-//    }
-//    if (empty($errors)) {
-//        $child_query = "INSERT INTO children (name, date_of_birth, bsn, nationality, gender, allergies, vaccinated)
-//        VALUES ('$child_name', '$date_of_birth', '$child_bsn', '$child_nationality', $child_gender, '$allergies', '$childVaccinated' )";
-    $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
 
-    $result = mysqli_query($db, $query);
+
+    $query = "UPDATE caretakers SET caretaker_name = '$caretaker_name', caretaker_age = '$caretaker_age', relation = '$relation', caretaker_bsn = '$caretaker_bsm', caretaker_nationality = '$caretaker_nationality', birth_country = '$birth_country', caretaker_gender = '$caretaker_gender', degree = '$degree', job = '$job', email = '$email', caretaker_phonenumber = '$caretaker_phonenumber', adres = '$adres', postcode = '$postcode', residence = '$residence' WHERE id = '$userID'";
+    $child_query = "INSERT INTO children (id, name, special_needs, date_of_birth, child_bsn, child_nationality, child_gender, childVaccinated, allergies) VALUES ('', '$name', '$special_needs', '$date_of_birth', '$child_bsn', '$child_nationality', '$child_gender', '$childVaccinated', '$allergies')";
+    $doctor_query = "INSERT INTO doctors (id, doctor_name, polis_number, insurance, doctor_phonenumber) VALUES ('', '$doctor_name', '$polis_number', '$insurance', '$doctor_phonenumber')";
+    $result = mysqli_multi_query($db, "$query; $child_query; $doctor_query");
     if ($result) {
         $succes = "Uw gegevens zijn toegeveogd";
         header('Location: extra_child.php');
@@ -192,17 +182,17 @@ if (isset($_POST['submit_1'])) {
                     <h3>Kind informatie</h3>
                     <div class="form_flex">
                             <label for="age_child"><b>Naam:</b></label>
-                            <input type="text" id="age_child" name="age_child" required>
+                            <input type="text" id="child_name" name="child_name" required>
                     </div>
 
                     <div class="form_flex">
                         <label for="Dateofbirth_child"><b>Geboortedatum:</b></label>
-                        <input type="date" id="Dateofbirth_child" name="Dateofbirth_child" required>
+                        <input type="date" id="date_of_birth" name="date_of_birth" required>
                     </div>
 
                     <div class="form_flex" id="bsn">
                         <label for="bsn_child"><b>BSN:</b></label>
-                        <input type="text" id="bsn_child" name="bsn_child">
+                        <input type="text" id="child_bsn" name="child_bsn">
                     </div>
 
                     <div class="check_radio">
@@ -212,22 +202,26 @@ if (isset($_POST['submit_1'])) {
 
                     <div class="form_flex">
                         <label for="nationality"><b>Nationaliteit:</b></label>
-                        <input type="text" id="nationality" name="nationality" required>
+                        <input type="text" id="child_nationality" name="child_nationality" required>
                     </div>
 
                     <div class="check_radio">
                         <label for="gender"><b>Geslacht:</b></label>
-                        <input type="radio" id="gender" name="gender">
+                        <input type="radio" id="child_gender" name="child_gender" value="Man">
                         <label for="gender">Man</label>
-                        <input type="radio" id="gender" name="gender">
+                        <input type="radio" id="child_gender" name="child_gender" value="Vrouw">
                         <label for="gender">Vrouw</label>
-                        <input type="radio" id="gender" name="gender">
+                        <input type="radio" id="child_gender" name="child_gender" value="Anders">
                         <label for="gender">Anders</label>
                     </div>
 
                     <div class="form_flex">
                         <label for="allergies"><b>Allergieën:</b></label>
                         <input type="text" id="allergies" name="allergies" required>
+                    </div>
+                    <div class="form_flex">
+                        <label for="special_needs"><b>Speciale zorg:</b></label>
+                        <input type="text" id="special_needs" name="special_needs" required>
                     </div>
 
                     <div class="check_radio">
@@ -241,12 +235,12 @@ if (isset($_POST['submit_1'])) {
                     <div>
                         <div class="form_flex">
                             <label for="name_docter"><b>Naam:</b></label>
-                            <input type="text" id="name_docter" name="name_docter" required>
+                            <input type="text" id="doctor_name" name="doctor_name" required>
                         </div>
 
                         <div class="form_flex">
                             <label for="phonenumber_docter"><b>Telefoonnummer:</b></label>
-                            <input type="text" id="phonenumber_docter" name="phonenumber_docter" required>
+                            <input type="text" id="doctor_phonenumber" name="doctor_phonenumber" required>
                         </div>
 
                         <div class="form_flex">
