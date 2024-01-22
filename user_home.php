@@ -64,7 +64,7 @@ if (mysqli_num_rows($result) == 1) {
 
 <main>
     <h1 class="title">
-        Welkom, [Naam]
+        Welkom, <?php echo $userName; ?>
     </h1>
 
     <div class="button-container">

@@ -12,7 +12,6 @@ while($row = mysqli_fetch_assoc($result))
     $reservations[] = $row;
 }
 
-
 mysqli_close($db);
 ?>
 <!doctype html>
