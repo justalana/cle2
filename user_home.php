@@ -44,6 +44,9 @@ if (mysqli_num_rows($result) == 1) {
         <div class="logo">
             <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
         </div>
+        <div>
+            <img src="images/profiel.png" alt="" onclick="window.open('aanpassen_login.php')">
+        </div>
 
         <div class="dropdown">
             <button class="dropdown-button"><img src="images/dropdown1.png"></button>
