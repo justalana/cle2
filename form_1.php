@@ -45,7 +45,7 @@ if (isset($_POST['submit_3'])) {
 
         if ($result) {
             $succes = "Uw gegevens zijn toegeveogd";
-            header('Location: form_2.php');
+            header('Location: reservation.php');
 
         }
         else {
