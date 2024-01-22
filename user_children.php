@@ -15,9 +15,7 @@ $userID = $_SESSION['caretakers_id'];
 $query = "SELECT child_id FROM `child_caretaker` WHERE caretaker_id = '$userID'";
 $result = mysqli_query($db, $query) or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 
-
 // Check if the user has children
-
 if (mysqli_num_rows($result) > 0) {
     $id_numbers = [];
     while($row = mysqli_fetch_assoc($result)) {
@@ -27,7 +25,6 @@ if (mysqli_num_rows($result) > 0) {
     echo "No children found";
     exit();
 }
-
 
 // Get child information using child id in the child_caretaker table
 $child_id = array_column($id_numbers, 'child_id');
