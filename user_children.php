@@ -1,25 +1,40 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['caretakers_id'])) {
+    // Redirect to login page if not logged in
+    header('Location: login.php');
+    exit();
+}
+
 /** @var mysqli $db */
 require_once 'connection.php';
 
-$query = "SELECT * FROM children";
-$result = mysqli_query($db, $query)
-or die('Error '.mysqli_error($db).' with query '.$query);
+// Retrieve user information based on the user ID stored in the session
+$userID = $_SESSION['caretakers_id'];
+$query = "SELECT child_id FROM `child_caretaker` WHERE caretaker_id = '$userID'";
+$result = mysqli_query($db, $query) or die('Error ' . mysqli_error($db) . ' with query ' . $query);
 
-$children = [];
-while($row = mysqli_fetch_assoc($result))
-{
-    $children[] = $row;
+// Check if the user has children
+if (mysqli_num_rows($result) > 0) {
+    $id_numbers = [];
+    while($row = mysqli_fetch_assoc($result)) {
+        $id_numbers[] = $row;
+    }
+} else {
+    echo "No children found";
+    exit();
 }
 
-$query = "SELECT * FROM doctors";
-$result = mysqli_query($db, $query)
-or die('Error '.mysqli_error($db).' with query '.$query);
+// Get child information using child id in the child_caretaker table
+$child_id = array_column($id_numbers, 'child_id');
+$child_id = implode(" ,", $child_id);
+$query = "SELECT * FROM children INNER JOIN doctors ON children.doctor_id=doctors.id WHERE children.id IN ($child_id);";
+$result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
 
-$doctors = [];
-while($row = mysqli_fetch_assoc($result))
-{
-    $doctors[] = $row;
+$child_info = [];
+while($row = mysqli_fetch_assoc($result)) {
+    $child_info[] = $row;
 }
 
 mysqli_close($db);
@@ -63,28 +78,26 @@ mysqli_close($db);
         Kinderen
     </h1>
     <div class="child-overview">
-        <?php foreach ($children as $index => $child) { ?>
-            <h2 class="heading"><?= htmlentities($child['name'])  ?></h2>
-            <ul>
-                <li class="list-text">Naam: <?= htmlentities($child['name'])?></li>
-                <li class="list-text">Geboortedatum: <?= htmlentities($child['date_of_birth'])?></li>
-                <li class="list-text">BSN: <?= htmlentities($child['bsn'])?></li>
-                <li class="list-text">Nationaliteit: <?= htmlentities($child['nationality'])?></li>
-                <li class="list-text">Geslacht: <?= htmlentities($child['gender'])?></li>
-                <li class="list-text">Allergieën: <?= htmlentities($child['allergies'])?></li>
-                <li class="list-text">Volgt het vaccinatieprogramma: <?= htmlentities($child['vaccinated'])?></li>
-            </ul>
-        <?php } ?>
+            <?php foreach ($child_info as $index => $child) { ?>
+                <h2 class="heading"><?= htmlentities($child['name'])  ?></h2>
+                <ul>
+                    <li class="list-text">Naam: <?= htmlentities($child['name'])?></li>
+                    <li class="list-text">Geboortedatum: <?= htmlentities($child['date_of_birth'])?></li>
+                    <li class="list-text">BSN: <?= htmlentities($child['bsn'])?></li>
+                    <li class="list-text">Nationaliteit: <?= htmlentities($child['nationality'])?></li>
+                    <li class="list-text">Geslacht: <?= htmlentities($child['gender'])?></li>
+                    <li class="list-text">Allergieën: <?= htmlentities($child['allergies'])?></li>
+                    <li class="list-text">Volgt het vaccinatieprogramma: <?= htmlentities($child['vaccinated'])?></li>
+                </ul>
 
-        <?php foreach ($doctors as $index => $doctor) { ?>
-            <h2 class="heading-smaller">Dokter</h2>
-            <ul class="list-end">
-                <li class="list-text">Naam: <?= htmlentities($doctor['doctor_name'])?></li>
-                <li class="list-text">Telefoonnummer: <?= htmlentities($doctor['doctor_phonenumber'])?></li>
-                <li class="list-text">Verzekeringsmaatschappij: <?= htmlentities($doctor['insurance'])?></li>
-                <li class="list-text">Polisnummer: <?= htmlentities($doctor['polis_number'])?></li>
-            </ul>
-        <?php } ?>
+                <h2 class="heading-smaller">Dokter</h2>
+                <ul class="list-end">
+                    <li class="list-text">Naam: <?= htmlentities($child['doctor_name'])?></li>
+                    <li class="list-text">Telefoonnummer: <?= htmlentities($child['doctor_phonenumber'])?></li>
+                    <li class="list-text">Verzekeringsmaatschappij: <?= htmlentities($child['insurance'])?></li>
+                    <li class="list-text">Polisnummer: <?= htmlentities($child['polis_number'])?></li>
+                </ul>
+            <?php } ?>
     </div>
 
 </main>
