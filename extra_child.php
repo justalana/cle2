@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 
     } else {
         $errors[$db] = mysqli_error($db);
-        header('Location: index.php');
+        header('Location: extra_child.php');
         exit();
     }
 }
