@@ -12,6 +12,7 @@ if(isset($_POST['submit'])){
     //pasword hashen en veilig maken voordat hij de database in gaat
     $hash = password_hash($password,PASSWORD_DEFAULT);
     // in de database inserten
+
     $query = "INSERT INTO `caretakers`(`id`, `email`, `password`, `caretaker_phonenumber`, `caretaker_name`)
 VALUES ('','$email','$hash','$caretaker_phoneNumber','$caretaker_name')";
     $result = mysqli_query($db, $query)
