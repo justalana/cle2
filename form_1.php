@@ -283,7 +283,7 @@ if (isset($_POST['submit_1'])) {
                     </div>
 
                     <div class="form_flex">
-                        <label for="Dateofbirth_caretaker"><b>Geboortedatum:</b></label>
+                        <label for="caretaker_age"><b>Geboortedatum:</b></label>
                         <input type="date" id="caretaker_age" name="caretaker_age" required>
                     </div>
 
@@ -306,9 +306,9 @@ if (isset($_POST['submit_1'])) {
                         <div class="check_radio">
                             <label for="caretaker_gender"><b>Geslacht:</b></label>
                             <input type="radio" id="caretaker_gender" name="caretaker_gender" value="Man">
-                            <label for="gender_caretaker">Man</label>
+                            <label for="caretaker_gender">Man</label>
                             <input type="radio" id="caretaker_gender" name="caretaker_gender" value="Vrouw">
-                            <label for="gender_caretaker">Vrouw</label>
+                            <label for="caretaker_gender">Vrouw</label>
                             <input type="radio" id="caretaker_gender" name="caretaker_gender" value="Anders">
                             <label for="caretaker_gender">Anders</label>
                         </div>

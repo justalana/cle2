@@ -3,7 +3,7 @@ session_start();
 require_once 'connection.php';
 /** @var mysqli $db  */
 //$userID = $_SESSION['reservations_id'];
-$userID = $_SESSION['caretakers_id'];
+$userID = 1;//$_SESSION['caretakers_id'];
 if(isset($_POST['submit'])){
 
     $date = mysqli_real_escape_string($db, $_POST['date']);
@@ -127,9 +127,10 @@ if(isset($_POST['submit'])){
             //header('Location: user_reservations.php');
         }
     }
-    if(1 == 1 ){
-        header('Location: user_reservations.php');
-    }
+        if(1 == 1 ){
+            header('Location: user_reservations.php');
+        }
+
 
 
 
