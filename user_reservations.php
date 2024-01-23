@@ -1,15 +1,30 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['caretakers_id'])) {
+    // Redirect to login page if not logged in
+    header('Location: login.php');
+    exit();
+}
+
 /** @var mysqli $db */
 require_once 'connection.php';
 
-$query = "SELECT * FROM reservations";
-$result = mysqli_query($db, $query)
-or die('Error '.mysqli_error($db).' with query '.$query);
+// Retrieve user information based on the user ID stored in the session
+$userID = $_SESSION['caretakers_id'];
+$query = "SELECT * FROM `reservations` WHERE caretaker_id = '$userID'";
+$result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
 
-$reservations = [];
-while($row = mysqli_fetch_assoc($result))
-{
-    $reservations[] = $row;
+// Check if the user has children
+if (mysqli_num_rows($result) > 0) {
+    $reservations = [];
+    while($row = mysqli_fetch_assoc($result)) {
+        $reservations[] = $row;
+    }
+    print_r($reservations);
+} else {
+    echo "No children found";
+    exit();
 }
 
 mysqli_close($db);
@@ -39,8 +54,7 @@ mysqli_close($db);
                 <a href="form_1.php" class="dropdown-item">Inschrijven</a>
                 <a href="user_reservations.php" class="dropdown-item">Inschrijvingen</a>
                 <a href="user_children.php" class="dropdown-item">Kinderen</a>
-                <a href="#" class="dropdown-item">Over Ons</a>
-                <a href="#" class="dropdown-item">Contact</a>
+                <a href="over_ons.php" class="dropdown-item">Over Ons</a>
             </div>
         </div>
     </nav>
@@ -55,9 +69,9 @@ mysqli_close($db);
     <div class="child-overview">
         <?php foreach ($reservations as $index => $reservation) { ?>
             <ul class="list-end">
-                <li class="list-text">Tijden: <?= htmlentities($reservation['time'])?></li>
-                <li class="list-text">Datum: <?= htmlentities($reservation['date'])?></li>
-                    <a href="reservation_delete.php?id=<?= $reservation['id']; ?>">verwijder inschrijving</a>
+                <li class="list-text">Startdatum: <?= htmlentities($reservation['date'])?></li>
+                <li class="list-text">Dag: <?= htmlentities($reservation['day'])?></li>
+                <a href="reservation_delete.php?id=<?= $reservation['id']; ?>">Verwijder inschrijving</a>
 
             </ul>
         <?php } ?>
