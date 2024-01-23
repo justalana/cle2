@@ -57,7 +57,8 @@ main{
 }
 
 input[type=text],
-input[type=date]{
+input[type=date],
+input[type=number]{
     width: 55vw;
     height: 6vh;
     border: 3px solid black;
@@ -66,11 +67,12 @@ input[type=date]{
     margin: 1vh 0 2vh 0;
 }
 
-input[type=text]:valid {
+input[type=text]:valid,
+input[type=number]:valid{
     border: 3px solid #0CA789;
 }
 
-#bsn input[type=text]:valid{
+#bsn input[type=number]:valid{
     border: 2px solid black;
 }
 
@@ -149,7 +151,8 @@ input[type=submit]:hover{
     }
 
     input[type=text],
-    input[type=date]{
+    input[type=date],
+    input[type=number]{
         width:70vw;
         border:2px solid black;
     }
