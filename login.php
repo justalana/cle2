@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/login.css?v<?php echo(time())?>">
     <link rel="stylesheet" href="./css/style.css">
     <title>KidzGlobe</title>
 </head>

@@ -109,7 +109,7 @@ input[type=text]:valid {
 #link-account{
     display:flex;
     justify-content: center;
-
+    margin-top: 2vh;
 }
 
 @media (max-width: 768px) {
