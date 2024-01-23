@@ -192,7 +192,7 @@ if (isset($_POST['submit_1'])) {
 
                     <div class="form_flex" id="bsn">
                         <label for="bsn_child"><b>BSN:</b></label>
-                        <input type="text" id="child_bsn" name="child_bsn">
+                        <input type="number" id="child_bsn" name="child_bsn">
                     </div>
 
                     <div class="check_radio">
@@ -240,7 +240,7 @@ if (isset($_POST['submit_1'])) {
 
                         <div class="form_flex">
                             <label for="phonenumber_docter"><b>Telefoonnummer:</b></label>
-                            <input type="text" id="doctor_phonenumber" name="doctor_phonenumber" required>
+                            <input type="number" id="doctor_phonenumber" name="doctor_phonenumber" required>
                         </div>
 
                         <div class="form_flex">
@@ -250,7 +250,7 @@ if (isset($_POST['submit_1'])) {
 
                         <div class="form_flex">
                             <label for="polis_number"><b>Polisnummer:</b></label>
-                            <input type="text" id="polis_number" name="polis_number" required>
+                            <input type="number" id="polis_number" name="polis_number" required>
                         </div>
                     </div>
                 </div>
@@ -289,7 +289,7 @@ if (isset($_POST['submit_1'])) {
 
                     <div class="form_flex">
                         <label for="bsn_caretaker"><b>BSN:</b></label>
-                        <input type="text" id="caretaker_bsm" name="caretaker_bsm" required>
+                        <input type="number" id="caretaker_bsm" name="caretaker_bsm" required>
                     </div>
 
                     <div class="form_flex">
@@ -332,7 +332,7 @@ if (isset($_POST['submit_1'])) {
 
                     <div class="form_flex">
                         <label for="phonenumber_caretaker"><b>Telefoonnummer:</b></label>
-                        <input type="text" id="caretaker_phonenumber" name="caretaker_phonenumber" required>
+                        <input type="number" id="caretaker_phonenumber" name="caretaker_phonenumber" required>
                     </div>
 
                     <div class="form_flex">

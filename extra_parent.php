@@ -104,7 +104,7 @@ VALUES ('','$email','$password','$relation','$caretaker_name','$caretaker_bsn','
 
                 <div class="form_flex">
                     <label for="bsn_caretaker"><b>BSN:</b></label>
-                    <input type="text" id="caretaker_bsn" name="caretaker_bsn" required>
+                    <input type="number" id="caretaker_bsn" name="caretaker_bsn" required>
                 </div>
 
                 <div class="form_flex">
@@ -147,7 +147,7 @@ VALUES ('','$email','$password','$relation','$caretaker_name','$caretaker_bsn','
 
                 <div class="form_flex">
                     <label for="caretaker_phonenumber"><b>Telefoonnummer:</b></label>
-                    <input type="text" id="caretaker_phonenumber" name="caretaker_phonenumber" required>
+                    <input type="number" id="caretaker_phonenumber" name="caretaker_phonenumber" required>
                 </div>
 
                 <div class="form_flex">

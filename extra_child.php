@@ -76,7 +76,7 @@ if(isset($_POST['submit'])){
 
                     <div class="form_flex" id="bsn">
                         <label for="child-bsn"><b>BSN:</b></label>
-                        <input type="text" id="child-bsn" name="child-bsn">
+                        <input type="number" id="child-bsn" name="child-bsn">
                     </div>
 
                     <div class="check_radio">
@@ -120,7 +120,7 @@ if(isset($_POST['submit'])){
 
                         <div class="form_flex">
                             <label for="phonenumber_docter"><b>Telefoonnummer:</b></label>
-                            <input type="text" id="phonenumber_docter" name="phonenumber_docter" required>
+                            <input type="number" id="phonenumber_docter" name="phonenumber_docter" required>
                         </div>
 
                         <div class="form_flex">
@@ -130,7 +130,7 @@ if(isset($_POST['submit'])){
 
                         <div class="form_flex">
                             <label for="polis_number"><b>Polisnummer:</b></label>
-                            <input type="text" id="polis_number" name="polis_number" required>
+                            <input type="number" id="polis_number" name="polis_number" required>
                         </div>
                     </div>
                 </div>
