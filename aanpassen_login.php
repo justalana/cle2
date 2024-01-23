@@ -29,7 +29,8 @@ $profiel = mysqli_fetch_assoc($result);
 if (isset($_POST['submit'])) {
 
     $email = mysqli_real_escape_string($db, $_POST['email']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+    $password = mysqli_real_escape_string($db, $_POST['wachtwoord']);
+    $password = password_hash($password,PASSWORD_DEFAULT);
 
     $query = "UPDATE `caretakers`
              SET `email`='$email',`password`='$password'

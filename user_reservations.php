@@ -43,6 +43,9 @@ mysqli_close($db);
         <div class="logo">
             <img src="images/Kidz-Globe-logo%20(1).png" alt="Kidzglobe">
         </div>
+        <div>
+            <a href="aanpassen_login.php"><img src="images/profiel.png" alt="" ></a>
+        </div>
 
         <div class="dropdown">
             <button class="dropdown-button"><img src="images/dropdown1.png"></button>

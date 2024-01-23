@@ -80,9 +80,6 @@ if (isset($_POST['submit'])) {
     <div class="logo">
         <img src="images/Kidz-Globe-logo (1).png" alt="Kidzglobe">
     </div>
-    <div class = profiel>
-        <img src="images/profiel.png" alt="profiel" onclick="window.open('aanpassen_login.php')">
-    </div>
     <div class="dropdown">
         <button class="dropdown-button"><img src="images/dropdown1.png"></button>
         <div class="dropdown-menu">

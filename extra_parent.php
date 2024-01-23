@@ -62,6 +62,9 @@ VALUES ('','$email','$password','$relation','$caretaker_name','$caretaker_bsn','
     <div class="logo">
         <img src="images/kidzglobe.png" alt="Kidzglobe">
     </div>
+    <div>
+        <a href="aanpassen_login.php"><img src="images/profiel.png" alt="" ></a>
+    </div>
 
     <div class="dropdown">
         <button class="dropdown-button"><img src="images/dropdown.png"></button>
