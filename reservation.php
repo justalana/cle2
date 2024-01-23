@@ -172,6 +172,7 @@ if(isset($_POST['submit'])){
             <a href="form_1.php" class="dropdown-item">Inschrijven</a>
             <a href="user_reservations.php" class="dropdown-item">Inschrijvingen</a>
             <a href="user_children.php" class="dropdown-item">Kinderen</a>
+            <a href="logout.php" class="dropdown-item">Log uit</a>
             <a href="over_ons.php" class="dropdown-item">Over Ons</a>
         </div>
     </div>
