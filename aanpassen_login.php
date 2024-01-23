@@ -68,10 +68,11 @@ if (isset($_POST['submit'])) {
     <div class="dropdown">
         <button class="dropdown-button"><img src="images/dropdown1.png"></button>
         <div class="dropdown-menu">
-            <a href="" class="dropdown-item">Home</a>
-            <a href="#" class="dropdown-item">Reservering Maken</a>
-            <a href="#" class="dropdown-item">Contact</a>
-            <a href="#" class="dropdown-item">Over Ons</a>
+            <a href="user_home.php" class="dropdown-item">Home</a>
+            <a href="form_1.php" class="dropdown-item">Inschrijven</a>
+            <a href="user_reservations.php" class="dropdown-item">Inschrijvingen</a>
+            <a href="user_children.php" class="dropdown-item">Kinderen</a>
+            <a href="over_ons.php" class="dropdown-item">Over Ons</a>
         </div>
     </div>
 

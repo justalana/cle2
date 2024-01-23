@@ -21,10 +21,9 @@
         <div class="dropdown">
             <button class="dropdown-button"><img src="images/dropdown1.png"></button>
             <div class="dropdown-menu">
-                <a href="index.php" class="dropdown-item">Home</a>
-                <a href="#" class="dropdown-item">Reservering Maken</a>
-                <a href="#" class="dropdown-item">Contact</a>
-                <a href="#" class="dropdown-item">Over Ons</a>
+                <a href="user_home.php" class="dropdown-item">Home</a>
+                <a href="form_1.php" class="dropdown-item">Reservering Maken</a>
+                <a href="over_ons.php" class="dropdown-item">Over Ons</a>
             </div>
         </div>
     </nav>

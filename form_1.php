@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['caretakers_id'])) {
+    // Redirect to login page if not logged in
+    header('Location: login.php');
+    exit();
+}
 require_once 'connection.php';
 /** @var mysqli $db */
 // Retrieve user information based on the user ID stored in the session
@@ -166,10 +172,11 @@ if (isset($_POST['submit_1'])) {
         <div class="dropdown">
             <button class="dropdown-button"><img src="images/dropdown.png"></button>
             <div class="dropdown-menu">
-                <a href="" class="dropdown-item">Home</a>
-                <a href="#" class="dropdown-item">Reservering Maken</a>
-                <a href="#" class="dropdown-item">Contact</a>
-                <a href="#" class="dropdown-item">Over Ons</a>
+                <a href="user_home.php" class="dropdown-item">Home</a>
+                <a href="form_1.php" class="dropdown-item">Inschrijven</a>
+                <a href="user_reservations.php" class="dropdown-item">Inschrijvingen</a>
+                <a href="user_children.php" class="dropdown-item">Kinderen</a>
+                <a href="over_ons.php" class="dropdown-item">Over Ons</a>
             </div>
         </div>
     </nav>
