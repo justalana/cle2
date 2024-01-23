@@ -55,8 +55,7 @@ if (mysqli_num_rows($result) == 1) {
                 <a href="form_1.php" class="dropdown-item">Inschrijven</a>
                 <a href=user_reservations.php class="dropdown-item">Inschrijvingen</a>
                 <a href="user_children.php" class="dropdown-item">Kinderen</a>
-                <a href="#" class="dropdown-item">Over Ons</a>
-                <a href="#" class="dropdown-item">Contact</a>
+                <a href="over_ons.php" class="dropdown-item">Over Ons</a>
             </div>
         </div>
     </nav>
@@ -86,11 +85,49 @@ if (mysqli_num_rows($result) == 1) {
                 <button class="button-b" >Inschrijven</button>
             </a>
         </div>
+    </div>
+</main>
 
+<footer>
+    <div>
+        <div>
+            <h3>Contact</h3>
+            <p class="adres"><b>Adres:</b> Van Everdijckstraat 31,</p>
+            <p class="adres">3083 MA Rotterdam</p>
+        </div>
+        <div>
+            <p><b>E-mail: </b><a href="">info@kdvkidzglobe.nl</a></p>
+            <p><b>Tel:</b> #085-078-3390</p>
+            <p><b>Mob:</b> #06-11-14-01-45</p>
+            <p><b>LRK:</b> 293736285</p>
+            <p><b>KvK nmr:</b> 85418072</p>
+        </div>
+    </div>
+    <div>
+        <h3>Openingstijden</h3>
+        <div id="tijden">
+            <div>
+                <p class="maandag">Maandag</p>
+                <p>Dinsdag</p>
+                <p>Woensdag</p>
+                <p>Donderdag</p>
+                <p>Vrijdag</p>
+                <p>Zaterdag</p>
+                <p>Zondag</p>
+            </div>
+            <div>
+                <p class="maandag">07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>07:30-18:00</p>
+                <p>Gesloten</p>
+                <p>Gesloten</p>
+            </div>
+        </div>
     </div>
 
-
-</main>
+</footer>
 
 </body>
 </html>

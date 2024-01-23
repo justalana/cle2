@@ -81,5 +81,14 @@ nav {
 
 .list-end {
     border-bottom: solid black;
-    margin: 0 5vw 0 2vw;
+    margin: 0 5vw 3vh 2vw;
+}
+
+.reservation_border {
+    border-bottom: solid black;
+    margin: 1vh 5vw 2vh 2vw;
+}
+
+.delete_reservation {
+    margin-left: 5vw;
 }
