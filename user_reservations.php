@@ -14,6 +14,7 @@ require_once 'connection.php';
 $userID = $_SESSION['caretakers_id'];
 $query = "SELECT * FROM `reservations` WHERE caretaker_id = '$userID'";
 $result = mysqli_query($db, $query) or die('Error '.mysqli_error($db).' with query '.$query);
+$time = '';
 
 // Check if the user has children
 if (mysqli_num_rows($result) > 0) {
@@ -21,10 +22,6 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $reservations[] = $row;
     }
-    print_r($reservations);
-} else {
-    echo "No children found";
-    exit();
 }
 
 mysqli_close($db);
@@ -68,10 +65,14 @@ mysqli_close($db);
     </h1>
     <div class="child-overview">
         <?php foreach ($reservations as $index => $reservation) { ?>
-            <ul class="list-end">
+            <ul class="reservation_border">
                 <li class="list-text">Startdatum: <?= htmlentities($reservation['date'])?></li>
                 <li class="list-text">Dag: <?= htmlentities($reservation['day'])?></li>
-                <a href="reservation_delete.php?id=<?= $reservation['id']; ?>">Verwijder inschrijving</a>
+                <li class="list-text">Tijd:
+                    <?php if (htmlentities($reservation['isMorning']) == 1) { $time = 'Ochtend'; } else { $time = 'Middag'; }?>
+                    <?= htmlentities($time) ?>
+                </li>
+                <a class="delete_reservation" href="reservation_delete.php?id=<?= $reservation['id']; ?>">Verwijder inschrijving</a>
 
             </ul>
         <?php } ?>

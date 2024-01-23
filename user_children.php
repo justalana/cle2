@@ -21,9 +21,6 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $id_numbers[] = $row;
     }
-} else {
-    echo "No children found";
-    exit();
 }
 
 // Get child information using child id in the child_caretaker table
