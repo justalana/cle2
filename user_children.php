@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
         $id_numbers[] = $row;
     }
 } else {
-    $child_error = 'Je hebt geen inschrjivingen staan';
+    $child_error = 'Je hebt geen kinderen ingeschreven';
 }
 
 // Get child information using child id in the child_caretaker table
