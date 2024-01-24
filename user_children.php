@@ -21,6 +21,8 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $id_numbers[] = $row;
     }
+} else {
+    $child_error = 'Je hebt geen inschrjivingen staan';
 }
 
 // Get child information using child id in the child_caretaker table
@@ -78,26 +80,30 @@ mysqli_close($db);
         Kinderen
     </h1>
     <div class="child-overview">
-            <?php foreach ($child_info as $index => $child) { ?>
-                <h2 class="heading"><?= htmlentities($child['name'])  ?></h2>
-                <ul>
-                    <li class="list-text">Naam: <?= htmlentities($child['name'])?></li>
-                    <li class="list-text">Geboortedatum: <?= htmlentities($child['date_of_birth'])?></li>
-                    <li class="list-text">BSN: <?= htmlentities($child['bsn'])?></li>
-                    <li class="list-text">Nationaliteit: <?= htmlentities($child['nationality'])?></li>
-                    <li class="list-text">Geslacht: <?= htmlentities($child['gender'])?></li>
-                    <li class="list-text">Allergieën: <?= htmlentities($child['allergies'])?></li>
-                    <li class="list-text">Volgt het vaccinatieprogramma: <?= htmlentities($child['vaccinated'])?></li>
-                </ul>
+        <?php if (mysqli_num_rows($result) > 0) { ?>
+                <?php foreach ($child_info as $index => $child) { ?>
+                    <h2 class="heading"><?= htmlentities($child['name'])  ?></h2>
+                    <ul>
+                        <li class="list-text">Naam: <?= htmlentities($child['name'])?></li>
+                        <li class="list-text">Geboortedatum: <?= htmlentities($child['date_of_birth'])?></li>
+                        <li class="list-text">BSN: <?= htmlentities($child['bsn'])?></li>
+                        <li class="list-text">Nationaliteit: <?= htmlentities($child['nationality'])?></li>
+                        <li class="list-text">Geslacht: <?= htmlentities($child['gender'])?></li>
+                        <li class="list-text">Allergieën: <?= htmlentities($child['allergies'])?></li>
+                        <li class="list-text">Volgt het vaccinatieprogramma: <?= htmlentities($child['vaccinated'])?></li>
+                    </ul>
 
-                <h2 class="heading-smaller">Dokter</h2>
-                <ul class="list-end">
-                    <li class="list-text">Naam: <?= htmlentities($child['doctor_name'])?></li>
-                    <li class="list-text">Telefoonnummer: <?= htmlentities($child['doctor_phonenumber'])?></li>
-                    <li class="list-text">Verzekeringsmaatschappij: <?= htmlentities($child['insurance'])?></li>
-                    <li class="list-text">Polisnummer: <?= htmlentities($child['polis_number'])?></li>
-                </ul>
-            <?php } ?>
+                    <h2 class="heading-smaller">Dokter</h2>
+                    <ul class="list-end">
+                        <li class="list-text">Naam: <?= htmlentities($child['doctor_name'])?></li>
+                        <li class="list-text">Telefoonnummer: <?= htmlentities($child['doctor_phonenumber'])?></li>
+                        <li class="list-text">Verzekeringsmaatschappij: <?= htmlentities($child['insurance'])?></li>
+                        <li class="list-text">Polisnummer: <?= htmlentities($child['polis_number'])?></li>
+                    </ul>
+                <?php } ?>
+        <?php } else { ?>
+            <h3><?=$child_error?></h3>
+        <?php } ?>
     </div>
 
 </main>

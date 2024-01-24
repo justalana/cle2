@@ -22,6 +22,8 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $reservations[] = $row;
     }
+}  else {
+    $reservation_error = 'Je hebt geen inschrjivingen staan';
 }
 
 mysqli_close($db);
@@ -68,17 +70,20 @@ mysqli_close($db);
         Reserveringen
     </h1>
     <div class="child-overview">
-        <?php foreach ($reservations as $index => $reservation) { ?>
-            <ul class="reservation_border">
-                <li class="list-text">Startdatum: <?= htmlentities($reservation['date'])?></li>
-                <li class="list-text">Dag: <?= htmlentities($reservation['day'])?></li>
-                <li class="list-text">Tijd:
-                    <?php if (htmlentities($reservation['isMorning']) == 1) { $time = 'Ochtend'; } else { $time = 'Middag'; }?>
-                    <?= htmlentities($time) ?>
-                </li>
-                <a class="delete_reservation" href="reservation_delete.php?id=<?= $reservation['id']; ?>">Verwijder inschrijving</a>
-
-            </ul>
+        <?php if (mysqli_num_rows($result) > 0) { ?>
+            <?php foreach ($reservations as $index => $reservation) { ?>
+                <ul class="reservation_border">
+                    <li class="list-text">Startdatum: <?= htmlentities($reservation['date'])?></li>
+                    <li class="list-text">Dag: <?= htmlentities($reservation['day'])?></li>
+                    <li class="list-text">Tijd:
+                        <?php if (htmlentities($reservation['isMorning']) == 1) { $time = 'Ochtend'; } else { $time = 'Middag'; }?>
+                        <?= htmlentities($time) ?>
+                    </li>
+                    <a class="delete_reservation" href="reservation_delete.php?id=<?= $reservation['id']; ?>">Verwijder inschrijving</a>
+                </ul>
+            <?php } ?>
+        <?php } else { ?>
+            <h3><?=$reservation_error?></h3>
         <?php } ?>
     </div>
 
